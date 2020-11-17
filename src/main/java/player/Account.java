@@ -1,5 +1,5 @@
 package player;
 
-public class Wallet {
+public class Account {
     private Integer balance;
 }

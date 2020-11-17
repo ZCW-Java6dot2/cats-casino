@@ -1,14 +1,13 @@
-package player.gameplayers;
+package gametables;
 
-import games.cardgames.Hand;
-import interfaces.Gambler;
-import player.Player;
+import interfaces.Gambling;
+import player.BlackjackPlayer;
+
 
 import javax.smartcardio.Card;
 
-public class BlackjackPlayer extends Player implements Gambler {
-    Hand blackjackPlayerHand;
-    Hand splitHand;
+public class BlackjackTable implements Gambling {
+    BlackjackPlayer blackjackPlayer;
 
     public boolean bet() {
         return false;
@@ -21,7 +20,12 @@ public class BlackjackPlayer extends Player implements Gambler {
     public Integer getWinnings() {
         return null;
     }
-    // taking a new card from the stakc into player's array of cards
+
+    public boolean addFunds() {
+        return false;
+    }
+
+    // taking a new card from the stake into player's array of cards
     public Card hit(){
       return null;
     }

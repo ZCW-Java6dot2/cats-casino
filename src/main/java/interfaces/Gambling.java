@@ -1,9 +1,10 @@
 package interfaces;
 
-public interface Gambler {
+public interface Gambling {
 
     boolean bet();
     Integer placeBet();
     Integer getWinnings();
+    boolean addFunds();
 
 }

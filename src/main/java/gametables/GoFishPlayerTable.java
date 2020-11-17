@@ -1,12 +1,12 @@
-package player.gameplayers;
+package gametables;
 
 import games.cardgames.Hand;
 import player.Player;
 
 import javax.smartcardio.Card;
 
-public class GoFishPlayer extends Player {
-    Hand goFishPlayerHand;
+public class GoFishPlayerTable {
+
     //player draws card from stack
     public Card goFish() {
         return null;

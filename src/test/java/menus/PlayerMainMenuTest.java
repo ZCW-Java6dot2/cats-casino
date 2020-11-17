@@ -2,7 +2,7 @@ package menus;
 
 import junit.framework.TestCase;
 
-public class PlayerMenuTest extends TestCase {
+public class PlayerMainMenuTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

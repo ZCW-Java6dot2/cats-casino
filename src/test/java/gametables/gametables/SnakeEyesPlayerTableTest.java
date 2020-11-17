@@ -1,8 +1,8 @@
-package player;
+package gametables.gametables;
 
 import junit.framework.TestCase;
 
-public class WalletTest extends TestCase {
+public class SnakeEyesPlayerTableTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

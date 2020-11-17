@@ -1,8 +1,8 @@
-package player.gameplayers;
+package gametables.gametables;
 
 import junit.framework.TestCase;
 
-public class GoFishPlayerTest extends TestCase {
+public class GoFishPlayerTableTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

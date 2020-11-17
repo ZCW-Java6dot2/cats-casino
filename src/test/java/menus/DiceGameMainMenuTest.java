@@ -1,8 +1,8 @@
-package interfaces;
+package menus;
 
 import junit.framework.TestCase;
 
-public class GamblerTest extends TestCase {
+public class DiceGameMainMenuTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
@@ -11,12 +11,9 @@ public class GamblerTest extends TestCase {
     public void tearDown() throws Exception {
     }
 
-    public void testBet() {
+    public void testRunCrapsMenu() {
     }
 
-    public void testPlaceBet() {
-    }
-
-    public void testGetWinnings() {
+    public void testRunSnakeEyes() {
     }
 }

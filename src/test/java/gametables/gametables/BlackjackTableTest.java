@@ -1,8 +1,8 @@
-package player.gameplayers;
+package gametables.gametables;
 
 import junit.framework.TestCase;
 
-public class CrapsPlayerTest extends TestCase {
+public class BlackjackTableTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
@@ -18,5 +18,17 @@ public class CrapsPlayerTest extends TestCase {
     }
 
     public void testGetWinnings() {
+    }
+
+    public void testHit() {
+    }
+
+    public void testDoubleDown() {
+    }
+
+    public void testStand() {
+    }
+
+    public void testSplit() {
     }
 }

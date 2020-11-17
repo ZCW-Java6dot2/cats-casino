@@ -1,9 +1,10 @@
-package player.gameplayers;
+package gametables;
 
-import interfaces.Gambler;
+import interfaces.Gambling;
 import player.Player;
 
-public class CrapsPlayer extends Player implements Gambler {
+public class CrapsPlayerTable implements Gambling {
+
     public boolean bet() {
         return false;
     }
@@ -14,6 +15,10 @@ public class CrapsPlayer extends Player implements Gambler {
 
     public Integer getWinnings() {
         return null;
+    }
+
+    public boolean addFunds() {
+        return false;
     }
 
 }

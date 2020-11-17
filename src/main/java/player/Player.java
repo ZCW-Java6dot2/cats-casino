@@ -1,9 +1,15 @@
 package player;
 
-import menus.PlayerMenu;
 
 public class Player {
-    Wallet playersWallet;
+    Account playersAccount;
 
-    PlayerMenu playerMenu = new PlayerMenu();
+    public Player(Account playersAccount) {
+        this.playersAccount = playersAccount;
+    }
+
+    public Player() {
+    }
+
+    Player player = new Player();
 }

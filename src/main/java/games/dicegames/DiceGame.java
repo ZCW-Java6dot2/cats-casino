@@ -45,4 +45,16 @@ public class DiceGame implements Game {
     public void results() {
 
     }
+
+    public void startPlayersTurn() {
+
+    }
+
+    public void action() {
+
+    }
+
+    public void finishTurn() {
+
+    }
 }

@@ -5,6 +5,8 @@ import interfaces.Game;
 import player.OpponentPlayer;
 import player.Player;
 
+import java.util.ArrayList;
+
 public class GoFish extends CardGame implements Game {
 
     //TODO:
@@ -26,7 +28,15 @@ public class GoFish extends CardGame implements Game {
 
     }
 
-    public void results() {
+    public String results(ArrayList<Integer> scores) {
+        return null;
+    }
+
+    public void startPlayersTurn() {
+
+    }
+
+    public void finishTurn() {
 
     }
 }

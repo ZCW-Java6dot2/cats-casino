@@ -4,7 +4,11 @@ import interfaces.GamblingGame;
 import interfaces.Game;
 import player.Player;
 
+import java.util.ArrayList;
+
 public class Craps extends DiceGame implements Game, GamblingGame {
+
+
     public void addPlayer(Player player) {
 
     }
@@ -21,7 +25,15 @@ public class Craps extends DiceGame implements Game, GamblingGame {
 
     }
 
-    public void results() {
+    public String results(ArrayList<Integer> scores) {
+        return null;
+    }
+
+    public void startPlayersTurn() {
+
+    }
+
+    public void finishTurn() {
 
     }
 

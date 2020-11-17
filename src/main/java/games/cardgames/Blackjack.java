@@ -5,7 +5,9 @@ import interfaces.GamblingGame;
 import interfaces.Game;
 import player.Dealer;
 import player.Player;
-import player.gameplayers.BlackjackPlayer;
+import gametables.BlackjackTable;
+
+import java.util.ArrayList;
 
 public class Blackjack extends CardGame implements Game, GamblingGame {
 
@@ -13,7 +15,7 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
     Dealer dealer = new Dealer();
 
     public void addPlayer(Player player) {
-        BlackjackPlayer blackjackPlayer = new BlackjackPlayer();
+        BlackjackTable blackjackTable = new BlackjackTable();
     }
 
     public void removePlayer(Player player) {
@@ -28,7 +30,15 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
 
     }
 
-    public void results() {
+    public String results(ArrayList<Integer> scores) {
+        return null;
+    }
+
+    public void startPlayersTurn() {
+
+    }
+
+    public void finishTurn() {
 
     }
 
