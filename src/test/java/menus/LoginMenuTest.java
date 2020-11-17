@@ -10,8 +10,6 @@ public class LoginMenuTest extends TestCase {
     @Before
     public void setUp() {
         LoginMenu loginMenu = new LoginMenu();
-        Player kyle = new Player();
-        Player currentPlayer = kyle;
     }
 
     @After

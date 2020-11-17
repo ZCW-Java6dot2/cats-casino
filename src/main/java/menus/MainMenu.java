@@ -4,6 +4,8 @@ import io.zipcoder.casino.utilities.Console;
 
 public class MainMenu {
     Console console = new Console(System.in, System.out);
+    MainMenu mainMenu = new MainMenu();
+    CasinoProfileMenu casinoProfileMenu = new CasinoProfileMenu();
 
     public String runMainMenu() {
         boolean mainMenuPower = true;
@@ -16,9 +18,7 @@ public class MainMenu {
                     "2 - Play Dice Games\n" +
                     "3 - Modify Casino Profile\n" +
                     "4 - Return to Login Menu\n" +
-                    "---------------------------------\n" +
-                    "Enter choice here: -> ");
-
+                    "---------------------------------\n");
             selection = console.getIntegerInput("Enter choice here: -> ");
             runMainMenuSwitch(selection);
         }

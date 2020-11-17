@@ -4,6 +4,8 @@ import interfaces.Game;
 import menus.DiceGameMenu;
 import player.Player;
 
+import java.util.ArrayList;
+
 public class DiceGame implements Game {
 
 
@@ -40,6 +42,10 @@ public class DiceGame implements Game {
 
     public void endGame() {
 
+    }
+
+    public String results(ArrayList<Integer> scores) {
+        return null;
     }
 
     public void results() {

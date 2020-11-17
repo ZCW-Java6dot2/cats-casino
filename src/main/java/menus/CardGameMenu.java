@@ -16,17 +16,15 @@ public class CardGameMenu {
                     "1 - Play Blackjack\n" +
                     "2 - Play Go Fish\n" +
                     "3 - Return to Main Menu\n" +
-                    "---------------------------------\n" +
-                    "Enter choice here: -> ");
+                    "---------------------------------\n");
             selection = console.getIntegerInput("Enter choice here: -> ");
             runCardGameSwitch(selection);
 
         }
-        return null;
+        return String.valueOf(selection);
     }
 
     public void runCardGameSwitch(Integer selection) {
-        boolean powerOn = true;
         switch (selection) {
             case 1:
                 //Play Blackjack
@@ -35,7 +33,7 @@ public class CardGameMenu {
                 //Play Go Fish
                 break;
             case 3:
-                powerOn = false;
+                //run main menu
                 break;
             default:
                 break;

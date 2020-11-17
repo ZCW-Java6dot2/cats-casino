@@ -6,6 +6,9 @@ import io.zipcoder.casino.utilities.Console;
 public class CasinoProfileMenu {
     Console console;
 
+    public CasinoProfileMenu() {
+    }
+
     public String runCasinoProfileMenu() {
         boolean casinoProfileMenu = true;
         //TODO: Add ASCII ART
