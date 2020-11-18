@@ -8,12 +8,9 @@ public class CasinoProfileMenu {
     Console console;
     private boolean casinoMenuPower = true;
     private boolean managedFundsMenuPower = true;
-    Account account;
-//    Accounts currentAccount;
 
     public CasinoProfileMenu(Console console) {
         this.console = console;
-        this.account = account;
     }
 
     public String runCasinoProfileMenu(Account account) {

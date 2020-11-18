@@ -31,7 +31,11 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
     Dealer dealer = new Dealer();
 
     public void addPlayer(Player player) {
+<<<<<<< HEAD
         BlackjackEngine blackjackEngine = new BlackjackEngine(Player player);
+=======
+//        BlackjackEngine blackjackEngine = new BlackjackEngine();
+>>>>>>> 74824044befe5e0d219f0c812fe4d96671e537fa
     }
 
     public void removePlayer(Player player) {
