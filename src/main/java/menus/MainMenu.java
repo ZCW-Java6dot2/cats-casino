@@ -1,17 +1,20 @@
 package menus;
 
 import io.zipcoder.casino.utilities.Console;
+import player.Account;
 
 public class MainMenu {
     private Console console;
+    private CasinoProfileMenu casinoProfileMenu;
 
     private boolean mainMenuPower = true;
 
     public MainMenu(Console console) {
         this.console = console;
+        this.casinoProfileMenu = new CasinoProfileMenu(console);
     }
 
-    public String runMainMenu(Integer selection) {
+    public String runMainMenu(Account account) {
         String output = null;
         //TODO: Add ASCII ART
         while (mainMenuPower) {
@@ -22,16 +25,16 @@ public class MainMenu {
                     "3 - Modify Casino Profile\n" +
                     "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
-            Integer new_selection = console.getIntegerInput("Enter choice here: -> ");
-            output = runMainMenuSwitch(new_selection);
+            Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
+            output = runMainMenuSwitch(newSelection, account);
         }
         return output;
     }
 
-    public String runMainMenuSwitch(Integer selection) {
+    public String runMainMenuSwitch(Integer newSelection, Account account) {
         String output = null;
         boolean powerOn = true;
-        switch (selection) {
+        switch (newSelection) {
             case 1:
                 //Take to card game menu
                 output = "TESTING THIS OUT";
@@ -40,12 +43,14 @@ public class MainMenu {
                 //Take to dice game menu
                 break;
             case 3:
-                //Modify casino player
+
+                output = casinoProfileMenu.runCasinoProfileMenu(account);
                 break;
             case 4:
                 mainMenuPower = false;
                 break;
             default:
+                output = "Please choose a correct option from the menu.";
                 break;
         }
         return output;
