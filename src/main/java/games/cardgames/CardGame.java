@@ -12,4 +12,8 @@ public class CardGame {
     //TODO
     CardGameMenu cardGameMenu = new CardGameMenu();
 
+    //Make card games do setup logic for BlackJack video
+
+
+
 }

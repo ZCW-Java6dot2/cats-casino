@@ -2,7 +2,7 @@ package gametables.gametables;
 
 import junit.framework.TestCase;
 
-public class GoFishPlayerTableTest extends TestCase {
+public class GoFishEngineTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

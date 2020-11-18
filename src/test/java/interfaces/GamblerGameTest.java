@@ -2,7 +2,7 @@ package interfaces;
 
 import junit.framework.TestCase;
 
-public class GamblingGameTest extends TestCase {
+public class GamblerGameTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
