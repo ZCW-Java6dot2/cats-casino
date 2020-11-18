@@ -7,7 +7,7 @@ import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 
 public class BlackjackGameNotes {
-    private final CardValues cardValues;
+    private CardValues cardValues;
     player.Account playersAccount;
     Console console;
 
@@ -21,7 +21,7 @@ public class BlackjackGameNotes {
         this.console = console;
     }
 
-    public BlackjackGame(CardValues cardValues) {
+    public void BlackjackGame(CardValues cardValues) {
         this.cardValues = cardValues;
     }
 
@@ -40,13 +40,11 @@ public class BlackjackGameNotes {
 
         Integer account = playersAccount.getBalance();
 
-        Scanner userInput = new Scanner(System.in);
 
         //Game Loop
         while (account > 0) {
             // Take the players bet
-            System.out.println("You have $" + account + ", how much would you like to bet?");
-            Integer playersBet = userInput.nextInteger();
+            console.getIntegerInput("You have $" + account + ", how much would you like to bet?");
             if (playersBet > account) {
                 System.out.println("You cannot bet more than you have. Try again.");
                 break;
@@ -130,3 +128,4 @@ public class BlackjackGameNotes {
 
         }
     }
+}
