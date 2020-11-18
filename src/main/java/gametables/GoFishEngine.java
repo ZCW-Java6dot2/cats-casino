@@ -1,13 +1,22 @@
 package gametables;
 
+import games.cardgames.GoFish;
 import games.cardgames.Hand;
 import interfaces.Game;
+import player.GoFishPlayer;
 import player.Player;
 
 import javax.smartcardio.Card;
 import java.util.ArrayList;
 
-public class GoFishPlayerTable implements Game {
+public class GoFishEngine {
+    GoFishPlayer goFishPlayer;
+    GoFish goFish;
+
+    public GoFishEngine(GoFishPlayer goFishPlayer, GoFish goFish) {
+        this.goFishPlayer = goFishPlayer;
+        this.goFish = goFish;
+    }
 
     //player draws card from stack
     public Card goFish() {
