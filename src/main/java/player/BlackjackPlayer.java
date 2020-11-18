@@ -1,8 +1,9 @@
 package player;
 
 import games.cardgames.Hand;
+import interfaces.Gambler;
 
-public class BlackjackPlayer {
+public class BlackjackPlayer implements Gambler {
     Player player;
     Hand hand;
     Hand splitHand;
@@ -14,4 +15,19 @@ public class BlackjackPlayer {
     }
 
 
+    public boolean bet() {
+        return false;
+    }
+
+    public Integer placeBet() {
+        return null;
+    }
+
+    public Integer getWinnings() {
+        return null;
+    }
+
+    public boolean addFunds() {
+        return false;
+    }
 }

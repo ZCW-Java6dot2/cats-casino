@@ -1,27 +1,17 @@
 package gametables;
 
+import games.cardgames.Blackjack;
 import player.BlackjackPlayer;
 
 
 
 public class BlackjackEngine {
     BlackjackPlayer blackjackPlayer;
+    Blackjack blackjack;
 
-    public boolean bet() {
-        return false;
+    public BlackjackEngine(Blackjack blackjack, BlackjackPlayer blackjackPlayer) {
+        this.blackjack = blackjack;
+        this.blackjackPlayer = blackjackPlayer;
     }
-
-    public Integer placeBet() {
-        return null;
-    }
-
-    public Integer getWinnings() {
-        return null;
-    }
-
-    public boolean addFunds() {
-        return false;
-    }
-
 
 }
