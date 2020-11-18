@@ -1,10 +1,10 @@
 package games.cardgames;
 
 
+import Dealer.BlackjackDealer;
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
-import player.Dealer;
 import player.Player;
 import gametables.BlackjackTable;
 
@@ -17,7 +17,7 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
     }
 
     //TODO:
-    Dealer dealer = new Dealer();
+    BlackjackDealer blackjackDealer = new BlackjackDealer();
 
     public void addPlayer(Player player) {
         BlackjackTable blackjackTable = new BlackjackTable();

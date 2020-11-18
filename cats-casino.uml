@@ -22,7 +22,7 @@
     <node x="367.29166666666663" y="379.0">interfaces.GamblingGame</node>
     <node x="706.7916666666667" y="649.5">games.cardgames.GoFish</node>
     <node x="0.0" y="1075.0">games.cardgames.Card</node>
-    <node x="192.0" y="1588.0">player.Dealer</node>
+    <node x="192.0" y="1588.0">Dealer.BlackjackDealer</node>
     <node x="0.0" y="1467.0">player.PlayerWarehouse</node>
     <node x="1010.7916666666667" y="0.0">games.cardgames.CardValues</node>
     <node x="1090.0" y="1242.0">games.dicegames.DiceBin</node>
