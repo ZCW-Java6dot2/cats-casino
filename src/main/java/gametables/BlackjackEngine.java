@@ -1,8 +1,11 @@
 package gametables;
 
-import interfaces.Gambler;
+import player.BlackjackPlayer;
 
-public class CrapsPlayerTable implements Gambler {
+
+
+public class BlackjackEngine {
+    BlackjackPlayer blackjackPlayer;
 
     public boolean bet() {
         return false;
@@ -19,5 +22,6 @@ public class CrapsPlayerTable implements Gambler {
     public boolean addFunds() {
         return false;
     }
+
 
 }
