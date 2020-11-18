@@ -116,6 +116,9 @@ public class DeckOfCards {
         return totalValue;
     }
 
+    public int deckSize(){
+        return this.deck.size();
+    }
 
 
 }

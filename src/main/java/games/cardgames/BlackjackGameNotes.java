@@ -35,19 +35,22 @@ public class BlackjackGameNotes {
         DeckOfCards playerHand = new DeckOfCards();
         DeckOfCards dealerHand = new DeckOfCards();
 
-        Integer Account = playersAccount.getBalance();
+        Integer account = playersAccount.getBalance();
 
         Scanner userInput = new Scanner(System.in);
 
         //Game Loop
-        while (playersAccount > 0) {
+        while (account > 0) {
             // Take the players bet
-            System.out.println("You have $" + playersAccount + ", how much would you like to bet?");
-            Integer playersbet = userInput.nextInteger();
-            if (playersbet > playersAccount) {
+            System.out.println("You have $" + account + ", how much would you like to bet?");
+            Integer playersBet = userInput.nextInteger();
+            if (playersBet > account) {
                 System.out.println("You cannot bet more than you have. Try again.");
                 break;
             }
+
+            boolean endHand = false;
+
             //Deal cards
             playerHand.dealCard(playingDeck);
             playerHand.dealCard(playingDeck);
@@ -55,9 +58,42 @@ public class BlackjackGameNotes {
             dealerHand.dealCard(playingDeck);
 
             while (true) {
-                System.out.println("Your hand:  " + playingDeck.toString());
+                //Display player hand
+                System.out.println("Your hand:  " + playerHand.toString());
                 System.out.println("Your hand is valued at:  " + playerHand.handValue());
-                System.out.println("");
+
+                //Display dealer hand
+                System.out.println("Dealer hand:  " + dealerHand.getCard(0).toString() + " and [Hidden]");
+
+                //What does the player want to do?
+                System.out.println("Would you like to (1)Hit or (2)Stand ?");
+                int response = userInput.nextInt();
+
+                //They Hit
+                if(response == 1){
+                    playerHand.dealCard(playingDeck);
+                    System.out.println("You draw a:  " + playerHand.getCard(playerHand.deckSize()-1).toString());
+                    //Bust if >21
+                    if(playerHand.handValue() > 21){
+                        System.out.println("Bust! Your hand is over 21.");
+                        account -= playersBet;
+                        endHand = true;
+                        break;
+                    }
+                }
+                //If player chooses to Stand
+                if (response == 2){
+                    break;
+                }
+            }
+            //Reveal dealer card
+            System.out.println("Dealer Cards:  " + dealerHand.toString());
+
+            //See if dealer beats player
+            if((dealerHand.handValue() > playerHand.handValue()) && endHand == false) {
+                System.out.println("Fat Cats Win!! You lose!");
+                account -= playersBet;
+                endHand = true;
             }
 
 
