@@ -6,7 +6,8 @@ public class SnakeEyesPlayers {
     Player player;
     DiceBin diceBin;
 
-    public SnakeEyesPlayers(Player player) {
+    public SnakeEyesPlayers() {
         this.player = player;
+
     }
 }

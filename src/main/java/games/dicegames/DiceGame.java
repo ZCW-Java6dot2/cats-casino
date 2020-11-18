@@ -10,7 +10,7 @@ public class DiceGame implements Game {
 
 
     //TODO
-    Die die = new Die();
+    Die die = new Die(6);
 
 
     //TODO
