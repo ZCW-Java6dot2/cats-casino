@@ -95,10 +95,34 @@ public class BlackjackGameNotes {
                 account -= playersBet;
                 endHand = true;
             }
-
-
+            while((dealerHand.handValue() < 17) && endHand == false )  {
+                dealerHand.dealCard(playingDeck);
+                System.out.println("Dealer hits:" + dealerHand.getCard(dealerHand.deckSize() - 1).toString());
+            }
+            System.out.println("Dealer's hand is valued at:  " + dealerHand.handValue());
+            if((dealerHand.handValue() > 21) && endHand == false) {
+                System.out.println("Dealer Busts! You win.");
+                account += playersBet;
+                endHand = true;
+            }
+            if((playerHand.handValue()) == dealerHand.handValue() && endHand == false) {
+                System.out.println("Push!");
+                endHand = true;
+            }
+            if((playerHand.handValue() > dealerHand.handValue()) && endHand == false) {
+                System.out.println("You win!");
+                account += playersBet;
+                endHand = true;
+            }
+            else if(endHand == false) {
+                System.out.println("You lose!");
+                account -= playersBet;
+                endHand = true;
+            }
+            playerHand.moveAllToDeck(playingDeck);
+            dealerHand.moveAllToDeck(playingDeck);
+            System.out.println("End of hand.");
         }
-
 
     }
 }
