@@ -50,5 +50,4 @@ public class CardGameMenu {
         return null;
     }
 
-    LoginMenu loginMenu = new LoginMenu();
 }

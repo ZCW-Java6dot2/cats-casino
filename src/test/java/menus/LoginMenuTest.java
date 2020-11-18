@@ -1,15 +1,19 @@
 package menus;
 
+import io.zipcoder.casino.utilities.Console;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import player.Player;
 
+import java.io.ByteArrayInputStream;
+import java.util.Scanner;
+
 public class LoginMenuTest extends TestCase {
 
     @Before
     public void setUp() {
-        LoginMenu loginMenu = new LoginMenu();
+//        LoginMenu loginMenu = new LoginMenu();
     }
 
     @After
@@ -29,11 +33,14 @@ public class LoginMenuTest extends TestCase {
     }
 
     public void testRunLoginMenu() {
-        LoginMenu loginMenu = new LoginMenu();
-        Integer expectedInt = 3;
-        Integer actualInt;
-        loginMenu.runLoginMenu();
 
+        String expectedInput = "1\n1\n4\n3\n";
+        System.setIn(new ByteArrayInputStream(expectedInput.getBytes()));
+
+        Console console = new Console(System.in, System.out);
+        LoginMenu loginMenu = new LoginMenu(console);
+        String output = loginMenu.runLoginMenu();
+        assertEquals("Closing casino!", output);
     }
 
     public void testLoginMenuSwitch() {

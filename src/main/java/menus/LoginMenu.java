@@ -2,43 +2,49 @@ package menus;
 
 import io.zipcoder.casino.utilities.Console;
 import player.Account;
-import player.Bank;
-import player.Player;
+
 
 import java.util.ArrayList;
 
 public class LoginMenu {
-    Console console = new Console(System.in, System.out);
-    Player currentPlayer;
+    Console console;
     MainMenu mainMenu;
     CasinoProfileMenu casinoProfileMenu;
     ArrayList<Account> bank;
+    private boolean loginMenuPower = true;
 
+
+    public LoginMenu(Console console) {
+        this.console = console;
+        this.mainMenu = new MainMenu(console);
+        this.casinoProfileMenu = new CasinoProfileMenu(console);
+    }
 
     public String runLoginMenu() {
-        boolean loginMenuPower = true;
+        String output = null;
         //TODO: Add ASCII ART
-        Integer selection = 0;
         while (loginMenuPower) {
             console.print("\n" +
                     "Please choose from the following options:\n" +
                     "1 - Login to your Casino Profile\n" +
                     "2 - Create a New Casino Profile\n" +
-                    "3 - Logout of Casino Profile\n" +
-                    "4 - Leave Casino\n" +
+                    "3 - Leave Casino\n" +
                     "---------------------------------\n");
-                   selection = console.getIntegerInput("Enter choice here: -> ");
-                   loginMenuSwitch(selection);
+            Integer selection = console.getIntegerInput("Enter choice here: -> ");
+            output = loginMenuSwitch(selection);
+
         }
-        return String.valueOf(selection);
+        return output;
     }
 
-    public void loginMenuSwitch(Integer selection) {
+    public String loginMenuSwitch(Integer selection) {
+        String output = null;
         boolean powerOn = true;
         switch (selection) {
             case 1:
                 //Create login method for Casino Profile
-                mainMenu.runMainMenu();
+//                selection = console.getIntegerInput("Enter choice here: -> ");
+                output = mainMenu.runMainMenu(selection);
                 break;
             case 2:
                 //Create profile method for Casino Profile
@@ -46,15 +52,13 @@ public class LoginMenu {
                 casinoProfileMenu.runCasinoProfileMenu();
                 break;
             case 3:
-                currentPlayer = null;
-                break;
-            case 4:
-                powerOn = false;
+                loginMenuPower = false;
+                output = "Closing casino!";
                 break;
             default:
                 break;
         }
-
+        return output;
     }
 
     public Account createNewUser(String input) {
@@ -67,54 +71,28 @@ public class LoginMenu {
         return casinoAccount;
     }
 
-    public Users loginUser() {
-        Users currentActiveUser = null;
-        System.out.println("\n" +
+    public Account loginUser(String input) {
+        Account currentAccount = null;
+        console.println("\n" +
                 "Please enter your username.");
-        String username = scanner.next();
-        System.out.println("\nPlease enter your password.");
-        String password = scanner.next();
-        for (Users user : userList) {
-            String currentName = user.getUsername();
-            String currentPassword = user.getPassword();
-            boolean isCorrectName = currentName.equals(username);
+        String username = console.getStringInput(input);
+        console.println("\nPlease enter your password.");
+        String password = console.getStringInput(input);
+        for (Account account : bank) {
+            String currentUsername = account.getUsername();
+            String currentPassword = account.getPassword();
+            boolean isCorrectName = currentUsername.equals(username);
             boolean isCorrectPassword = currentPassword.equals(password);
             boolean isValid = isCorrectName && isCorrectPassword;
             if (isValid) {
-                currentActiveUser = user;
+                currentAccount = account;
             }
-            if (currentActiveUser == null) {
-                System.out.println("\nIncorrect user or password, please try again.");
-                currentActiveUser = createNewUser();
+            if (currentAccount == null) {
+                console.println("\nIncorrect user or password, please try again.");
+                currentAccount = createNewUser(input);
             }
         }
-        return currentActiveUser;
-    }
-
-
-    public void deleteUser(Users currentActiveUser) {
-        System.out.println("Please confirm deletion with providing your password:");
-        String deletionPassword = scanner.nextLine();
-        if (currentActiveUser.getPassword().equals(deletionPassword)) {
-            userList.remove(currentActiveUser);
-            System.out.println("User profile deleted.");
-        }
-    }
-
-    public String runMainMenu() {
-        return null;
-    }
-
-    public String runCardGamesMenu() {
-        return null;
-    }
-
-    public String runDiceGamesMenus() {
-        return null;
-    }
-
-    public String runPlayerMenu() {
-        return null;
+        return currentAccount;
     }
 }
 

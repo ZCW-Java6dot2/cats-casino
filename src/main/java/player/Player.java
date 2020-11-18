@@ -1,7 +1,7 @@
 package player;
 
 
-public abstract class Player {
+public class Player {
     Account playersAccount;
 
     public Player(Account playersAccount) {

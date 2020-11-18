@@ -50,5 +50,4 @@ public class DiceGameMenu {
         return null;
     }
 
-    LoginMenu loginMenu = new LoginMenu();
 }

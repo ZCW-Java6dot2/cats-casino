@@ -3,14 +3,17 @@ package menus;
 import io.zipcoder.casino.utilities.Console;
 
 public class MainMenu {
-    Console console = new Console(System.in, System.out);
-    MainMenu mainMenu = new MainMenu();
-    CasinoProfileMenu casinoProfileMenu = new CasinoProfileMenu();
+    private Console console;
 
-    public String runMainMenu() {
-        boolean mainMenuPower = true;
+    private boolean mainMenuPower = true;
+
+    public MainMenu(Console console) {
+        this.console = console;
+    }
+
+    public String runMainMenu(Integer selection) {
+        String output = null;
         //TODO: Add ASCII ART
-        Integer selection = 0;
         while (mainMenuPower) {
             System.out.println("\n" +
                     "Please choose from the following options:\n" +
@@ -19,17 +22,19 @@ public class MainMenu {
                     "3 - Modify Casino Profile\n" +
                     "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
-            selection = console.getIntegerInput("Enter choice here: -> ");
-            runMainMenuSwitch(selection);
+            Integer new_selection = console.getIntegerInput("Enter choice here: -> ");
+            output = runMainMenuSwitch(new_selection);
         }
-        return null;
+        return output;
     }
 
-    public void runMainMenuSwitch(Integer selection) {
+    public String runMainMenuSwitch(Integer selection) {
+        String output = null;
         boolean powerOn = true;
         switch (selection) {
             case 1:
                 //Take to card game menu
+                output = "TESTING THIS OUT";
                 break;
             case 2:
                 //Take to dice game menu
@@ -38,12 +43,12 @@ public class MainMenu {
                 //Modify casino player
                 break;
             case 4:
-                powerOn = false;
+                mainMenuPower = false;
                 break;
             default:
                 break;
         }
-
+        return output;
     }
 
 }

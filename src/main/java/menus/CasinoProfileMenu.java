@@ -6,7 +6,8 @@ import io.zipcoder.casino.utilities.Console;
 public class CasinoProfileMenu {
     Console console;
 
-    public CasinoProfileMenu() {
+    public CasinoProfileMenu(Console console) {
+        this.console = console;
     }
 
     public String runCasinoProfileMenu() {
@@ -102,7 +103,4 @@ public class CasinoProfileMenu {
     public void cashOut() {
 
     }
-
-    //TODO
-    LoginMenu loginMenu = new LoginMenu();
 }
