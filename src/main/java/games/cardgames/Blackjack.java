@@ -29,10 +29,14 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
 
     public void startGame() {
         console.println("Welcome to BlackJack!");
-        CardGame deck = new CardGame();
-        deck.createDeck();
-        deck.shuffleDeck();
-       console.print(deck.toString());
+
+        //Create playing deck
+        DeckOfCards playingDeck = new DeckOfCards();
+        playingDeck.createFullDeck();
+        playingDeck.shuffleDeck();
+
+        //Test Print
+      // console.print(playingDeck.toString());
     }
 
     public void endGame() {
