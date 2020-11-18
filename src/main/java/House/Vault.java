@@ -3,7 +3,7 @@ package House;
 import interfaces.GamblingGame;
 
 public class Vault {
-    Double balance;
+    Integer balance;
 
     //TODO
     GamblingGame gamblingGame = new GamblingGame() {

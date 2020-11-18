@@ -12,6 +12,7 @@ public class DeckOfCards {
     public DeckOfCards() {
         this.deck = new ArrayList<Card>();
     }
+
     public void createFullDeck() {
         for(CardSuits cardSuits: CardSuits.values()) {
             for(CardValues cardValues: CardValues.values()) {

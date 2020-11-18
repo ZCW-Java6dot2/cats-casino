@@ -1,18 +1,8 @@
 package games.cardgames;
 
+public class BlackjackGameNotes {
 
-import menus.CardGameMenu;
-
-import java.util.ArrayList;
-import java.util.Collections;
-
-public class CardGame {
-
-
-    //TODO
-    CardGameMenu cardGameMenu = new CardGameMenu();
-
-    //Make card games do setup logic for BlackJack video
+}
 
     public void startGame(String gameName) {
 
@@ -22,9 +12,13 @@ public class CardGame {
         DeckOfCards playingDeck = new DeckOfCards();
         playingDeck.createFullDeck();
         playingDeck.shuffleDeck();
-
-        //Test Print
-        // console.print(playingDeck.toString());
     }
+
+    //Create a hand for the player
+    DeckOfCards playerHand = new DeckOfCards();
+    DeckOfCards dealerHand = new DeckOfCards();
+
+    Integer Account =
+
 
 }
