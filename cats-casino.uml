@@ -12,7 +12,7 @@
     <node x="554.0" y="1242.0">menus.CardGameMenu</node>
     <node x="895.0" y="1467.0">menus.MainMenu</node>
     <node x="89.19097222222217" y="258.0">games.dicegames.DiceGame</node>
-    <node x="0.0" y="661.0">games.dicegames.SnakeEye</node>
+    <node x="0.0" y="661.0">games.dicegames.SnakeEyes</node>
     <node x="657.0" y="1467.0">games.cardgames.Hand</node>
     <node x="471.7916666666667" y="627.0">games.cardgames.Blackjack</node>
     <node x="798.0" y="948.0">games.cardgames.CardSuits</node>
@@ -31,7 +31,7 @@
     <node x="118.5" y="948.0">games.cardgames.DeckOfCards</node>
     <node x="589.4722222222222" y="346.0">games.cardgames.CardGame</node>
     <node x="244.54166666666663" y="0.0">interfaces.Game</node>
-    <node x="41.5" y="1368.0">gametables.SnakeEyesPlayerTable</node>
+    <node x="41.5" y="1368.0">gametables.SnakeEyesEngine</node>
   </nodes>
   <notes />
   <edges>
@@ -49,7 +49,7 @@
       <point x="438.04166666666663" y="228.0" />
       <point x="86.0" y="104.0" />
     </edge>
-    <edge source="games.dicegames.SnakeEye" target="games.dicegames.DiceGame">
+    <edge source="games.dicegames.SnakeEyes" target="games.dicegames.DiceGame">
       <point x="53.75" y="-104.0" />
       <point x="161.25" y="602.0" />
       <point x="151.94097222222217" y="602.0" />
@@ -97,7 +97,7 @@
       <point x="414.54166666666663" y="602.0" />
       <point x="-47.25" y="38.5" />
     </edge>
-    <edge source="games.dicegames.SnakeEye" target="interfaces.Game">
+    <edge source="games.dicegames.SnakeEyes" target="interfaces.Game">
       <point x="-53.75" y="-104.0" />
       <point x="53.75" y="602.0" />
       <point x="69.52430555555554" y="602.0" />
@@ -105,7 +105,7 @@
       <point x="266.04166666666663" y="228.0" />
       <point x="-86.0" y="104.0" />
     </edge>
-    <edge source="gametables.SnakeEyesPlayerTable" target="player.Player">
+    <edge source="gametables.SnakeEyesEngine" target="player.Player">
       <point x="0.0" y="-27.0" />
       <point x="0.0" y="38.0" />
     </edge>
@@ -118,7 +118,7 @@
   </edges>
   <settings layout="Hierarchic Group" zoom="0.39473684210526316" x="1277.0" y="997.0" />
   <SelectedNodes>
-    <node>gametables.SnakeEyesPlayerTable</node>
+    <node>gametables.SnakeEyesEngine</node>
   </SelectedNodes>
   <Categories>
     <Category>Fields</Category>

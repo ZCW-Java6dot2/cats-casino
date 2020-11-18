@@ -2,7 +2,7 @@ package games.dicegames;
 
 import junit.framework.TestCase;
 
-public class SnakeEyeTest extends TestCase {
+public class SnakeEyesTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
