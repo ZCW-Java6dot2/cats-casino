@@ -4,6 +4,7 @@ import io.zipcoder.casino.utilities.Console;
 import player.Account;
 
 import java.sql.SQLOutput;
+import java.util.InputMismatchException;
 
 public class BlackjackGameNotes {
     private final CardValues cardValues;
@@ -19,9 +20,11 @@ public class BlackjackGameNotes {
     public BlackjackGameNotes(Console console) {
         this.console = console;
     }
+
     public BlackjackGame(CardValues cardValues) {
         this.cardValues = cardValues;
     }
+
     public void startGame(String gameName) {
 
 //TODO        console.println(String.format("Welcome to ", getGameName(gameName), "!"));
@@ -59,70 +62,71 @@ public class BlackjackGameNotes {
 
             while (true) {
                 //Display player hand
-                System.out.println("Your hand:  " + playerHand.toString());
-                System.out.println("Your hand is valued at:  " + playerHand.handValue());
+                console.println("Your hand:  " + playerHand.toString());
+                console.println("Your hand is valued at:  " + playerHand.handValue());
 
                 //Display dealer hand
-                System.out.println("Dealer hand:  " + dealerHand.getCard(0).toString() + " and [Hidden]");
+                console.println("Fat Cats hand:  " + dealerHand.getCard(0).toString() + " and [Hidden]");
 
                 //What does the player want to do?
-                System.out.println("Would you like to (1)Hit or (2)Stand ?");
-                int response = userInput.nextInt();
+                try {
+                    int response = console.getIntegerInput("Would you like to (1)Hit or (2)Stand ?");
 
-                //They Hit
-                if(response == 1){
-                    playerHand.dealCard(playingDeck);
-                    System.out.println("You draw a:  " + playerHand.getCard(playerHand.deckSize()-1).toString());
-                    //Bust if >21
-                    if(playerHand.handValue() > 21){
-                        System.out.println("Bust! Your hand is over 21.");
-                        account -= playersBet;
-                        endHand = true;
-                        break;
+                    //They Hit
+                    switch (response) {
+                        case 1:
+                            playerHand.dealCard(playingDeck);
+                            console.println("You draw a:  " + playerHand.getCard(playerHand.deckSize() - 1).toString());
+                            //Bust if >21
+                            if (playerHand.handValue() > 21) {
+                                console.println("Bust! Your hand is over 21.");
+                                account -= playersBet;
+                                endHand = true;
+                                break;
+                            }
+                            //If player chooses to Stand
+                        case 2:
+                            break;
                     }
+                } catch (InputMismatchException e) {
+                    console.getIntegerInput("\n" + "Not a valid move. Select from: (1)Hit or (2)Stand)");
                 }
-                //If player chooses to Stand
-                if (response == 2){
-                    break;
-                }
-            }
-            //Reveal dealer card
-            System.out.println("Dealer Cards:  " + dealerHand.toString());
+                //Reveal dealer card
+                console.println("Fat Cats Cards:  " + dealerHand.toString());
 
-            //See if dealer beats player
-            if((dealerHand.handValue() > playerHand.handValue()) && endHand == false) {
-                System.out.println("Fat Cats Win!! You lose!");
-                account -= playersBet;
-                endHand = true;
+                //See if dealer beats player
+                if ((dealerHand.handValue() > playerHand.handValue()) && endHand == false) {
+                    console.println("Fat Cats Win!! You lose!");
+                    account -= playersBet;
+                    endHand = true;
+                }
+                while ((dealerHand.handValue() < 17) && endHand == false) {
+                    dealerHand.dealCard(playingDeck);
+                    console.println("Fat Cats hit:  " + dealerHand.getCard(dealerHand.deckSize() - 1).toString());
+                }
+                console.println("Fat Cats' hand is valued at:  " + dealerHand.handValue());
+                if ((dealerHand.handValue() > 21) && endHand == false) {
+                    console.println("Fat Cats Bust! You win.");
+                    account += playersBet;
+                    endHand = true;
+                }
+                if ((playerHand.handValue()) == dealerHand.handValue() && endHand == false) {
+                    console.println("Push!");
+                    endHand = true;
+                }
+                if ((playerHand.handValue() > dealerHand.handValue()) && endHand == false) {
+                    console.println("You win!");
+                    account += playersBet;
+                    endHand = true;
+                } else if (endHand == false) {
+                    console.println("You lose!");
+                    account -= playersBet;
+                    endHand = true;
+                }
+                playerHand.moveAllToDeck(playingDeck);
+                dealerHand.moveAllToDeck(playingDeck);
+                console.println("End of hand.");
             }
-            while((dealerHand.handValue() < 17) && endHand == false )  {
-                dealerHand.dealCard(playingDeck);
-                System.out.println("Dealer hits:" + dealerHand.getCard(dealerHand.deckSize() - 1).toString());
-            }
-            System.out.println("Dealer's hand is valued at:  " + dealerHand.handValue());
-            if((dealerHand.handValue() > 21) && endHand == false) {
-                System.out.println("Dealer Busts! You win.");
-                account += playersBet;
-                endHand = true;
-            }
-            if((playerHand.handValue()) == dealerHand.handValue() && endHand == false) {
-                System.out.println("Push!");
-                endHand = true;
-            }
-            if((playerHand.handValue() > dealerHand.handValue()) && endHand == false) {
-                System.out.println("You win!");
-                account += playersBet;
-                endHand = true;
-            }
-            else if(endHand == false) {
-                System.out.println("You lose!");
-                account -= playersBet;
-                endHand = true;
-            }
-            playerHand.moveAllToDeck(playingDeck);
-            dealerHand.moveAllToDeck(playingDeck);
-            System.out.println("End of hand.");
+
         }
-
     }
-}
