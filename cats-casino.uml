@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="1588.0">player.Wallet</node>
+    <node x="333.0" y="1242.0">gametables.CrapsPlayerTable</node>
+    <node x="1351.0" y="1467.0">io.zipcoder.casino.Casino</node>
+    <node x="1128.0" y="1467.0">games.dicegames.Die</node>
+    <node x="0.0" y="1242.0">player.Player</node>
+    <node x="447.0" y="948.0">io.zipcoder.casino.utilities.Console</node>
+    <node x="554.0" y="1242.0">menus.CardGameMenu</node>
+    <node x="895.0" y="1467.0">menus.MainMenu</node>
+    <node x="89.19097222222217" y="258.0">games.dicegames.DiceGame</node>
+    <node x="0.0" y="661.0">games.dicegames.SnakeEye</node>
+    <node x="657.0" y="1467.0">games.cardgames.Hand</node>
+    <node x="471.7916666666667" y="627.0">games.cardgames.Blackjack</node>
+    <node x="798.0" y="948.0">games.cardgames.CardSuits</node>
+    <node x="236.79166666666669" y="638.5">games.dicegames.Craps</node>
+    <node x="823.0" y="1242.0">menus.DiceGameMenu</node>
+    <node x="1360.7916666666667" y="0.0">gametables.BlackjackTable</node>
+    <node x="367.29166666666663" y="379.0">interfaces.GamblingGame</node>
+    <node x="706.7916666666667" y="649.5">games.cardgames.GoFish</node>
+    <node x="0.0" y="1075.0">games.cardgames.Card</node>
+    <node x="192.0" y="1588.0">player.Dealer</node>
+    <node x="0.0" y="1467.0">player.PlayerWarehouse</node>
+    <node x="1010.7916666666667" y="0.0">games.cardgames.CardValues</node>
+    <node x="1090.0" y="1242.0">games.dicegames.DiceBin</node>
+    <node x="368.0" y="1467.0">House.Vault</node>
+    <node x="1145.0" y="948.0">gametables.GoFishPlayerTable</node>
+    <node x="118.5" y="948.0">games.cardgames.DeckOfCards</node>
+    <node x="589.4722222222222" y="346.0">games.cardgames.CardGame</node>
+    <node x="244.54166666666663" y="0.0">interfaces.Game</node>
+    <node x="41.5" y="1368.0">gametables.SnakeEyesPlayerTable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="games.dicegames.DiceGame" target="interfaces.Game">
+      <point x="0.0" y="-159.5" />
+      <point x="214.69097222222217" y="238.0" />
+      <point x="309.04166666666663" y="238.0" />
+      <point x="-43.0" y="104.0" />
+    </edge>
+    <edge source="games.cardgames.GoFish" target="interfaces.Game">
+      <point x="64.75" y="-115.5" />
+      <point x="901.0416666666667" y="602.0" />
+      <point x="866.4791666666666" y="602.0" />
+      <point x="866.4791666666666" y="228.0" />
+      <point x="438.04166666666663" y="228.0" />
+      <point x="86.0" y="104.0" />
+    </edge>
+    <edge source="games.dicegames.SnakeEye" target="games.dicegames.DiceGame">
+      <point x="53.75" y="-104.0" />
+      <point x="161.25" y="602.0" />
+      <point x="151.94097222222217" y="602.0" />
+      <point x="-62.75" y="159.5" />
+    </edge>
+    <edge source="games.dicegames.Craps" target="games.dicegames.DiceGame">
+      <point x="-71.66666666666674" y="-126.5" />
+      <point x="272.62499999999994" y="602.0" />
+      <point x="277.4409722222222" y="602.0" />
+      <point x="62.75" y="159.5" />
+    </edge>
+    <edge source="games.dicegames.Craps" target="interfaces.Game">
+      <point x="0.0" y="-126.5" />
+      <point x="344.2916666666667" y="602.0" />
+      <point x="352.04166666666663" y="602.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="games.cardgames.Blackjack" target="interfaces.Game">
+      <point x="0.0" y="-138.0" />
+      <point x="579.2916666666667" y="602.0" />
+      <point x="571.1666666666667" y="602.0" />
+      <point x="571.1666666666667" y="238.0" />
+      <point x="395.04166666666663" y="238.0" />
+      <point x="43.0" y="104.0" />
+    </edge>
+    <edge source="games.cardgames.Card" target="games.cardgames.DeckOfCards">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="games.cardgames.GoFish" target="games.cardgames.CardGame">
+      <point x="-64.75" y="-115.5" />
+      <point x="771.5416666666667" y="602.0" />
+      <point x="779.9722222222222" y="602.0" />
+      <point x="63.5" y="71.5" />
+    </edge>
+    <edge source="games.cardgames.Blackjack" target="games.cardgames.CardGame">
+      <point x="71.66666666666674" y="-138.0" />
+      <point x="650.9583333333335" y="602.0" />
+      <point x="652.9722222222222" y="602.0" />
+      <point x="-63.5" y="71.5" />
+    </edge>
+    <edge source="games.dicegames.Craps" target="interfaces.GamblingGame">
+      <point x="71.66666666666663" y="-126.5" />
+      <point x="415.9583333333333" y="602.0" />
+      <point x="414.54166666666663" y="602.0" />
+      <point x="-47.25" y="38.5" />
+    </edge>
+    <edge source="games.dicegames.SnakeEye" target="interfaces.Game">
+      <point x="-53.75" y="-104.0" />
+      <point x="53.75" y="602.0" />
+      <point x="69.52430555555554" y="602.0" />
+      <point x="69.52430555555554" y="228.0" />
+      <point x="266.04166666666663" y="228.0" />
+      <point x="-86.0" y="104.0" />
+    </edge>
+    <edge source="gametables.SnakeEyesPlayerTable" target="player.Player">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="games.cardgames.Blackjack" target="interfaces.GamblingGame">
+      <point x="-71.66666666666674" y="-138.0" />
+      <point x="507.62499999999994" y="602.0" />
+      <point x="509.04166666666663" y="602.0" />
+      <point x="47.25" y="38.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.39473684210526316" x="1277.0" y="997.0" />
+  <SelectedNodes>
+    <node>gametables.SnakeEyesPlayerTable</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
