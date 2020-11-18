@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Accounts {
     Console console;
-    ArrayList<Account> bank;
+    ArrayList<Account> listOfAccounts;
     private Account currentAccount;
 
 
@@ -22,15 +22,15 @@ public class Accounts {
 
     public Accounts(Console console) {
         this.console = console;
-        bank = new ArrayList<Account>();
+        listOfAccounts = new ArrayList<Account>();
     }
 
-    public ArrayList<Account> getBank() {
-        return bank;
+    public ArrayList<Account> getListOfAccounts() {
+        return listOfAccounts;
     }
 
-    public void setBank(ArrayList<Account> bank) {
-        this.bank = bank;
+    public void setListOfAccounts(ArrayList<Account> listOfAccounts) {
+        this.listOfAccounts = listOfAccounts;
     }
 
     public Account createNewUser() {
@@ -40,33 +40,34 @@ public class Accounts {
         String passwordInput = "";
         console.println("\nPlease provide a password for your profile:");
         String password = console.getStringInput(passwordInput);
-        Account casinoAccount = new Account(username, password);
-        this.bank.add(casinoAccount);
+        Account casinoAccount = new Account(console, username, password);
+        this.listOfAccounts.add(casinoAccount);
         return casinoAccount;
     }
 
-        public Account loginUser() {
+    public Account loginUser() {
         currentAccount = null;
-        String userNameInput = "";
-        console.println("\n" +
-                "Please enter your username.");
-        String username = console.getStringInput(userNameInput);
-        String passwordInput = "";
-        console.println("\nPlease enter your password.");
-        String password = console.getStringInput(passwordInput);
-        for (Account account : bank) {
-            String currentUsername = account.getUsername();
-            String currentPassword = account.getPassword();
-            boolean isCorrectName = currentUsername.equals(username);
-            boolean isCorrectPassword = currentPassword.equals(password);
-            boolean isValid = isCorrectName && isCorrectPassword;
-            if (isValid) {
-                currentAccount = account;
+        String username = console.getStringInput("Please enter your username.");
+        String password = console.getStringInput("Please enter your password.");
+
+        if (listOfAccounts.size() == 0) {
+            currentAccount = createNewUser();
+        } else {
+            for (Account account : listOfAccounts) {
+                String currentUsername = account.getUsername();
+                String currentPassword = account.getPassword();
+                boolean isCorrectName = currentUsername.equals(username);
+                boolean isCorrectPassword = currentPassword.equals(password);
+                boolean isValid = isCorrectName && isCorrectPassword;
+                if (isValid) {
+                    currentAccount = account;
+                }
+                if (currentAccount == null) {
+                    console.println("\nIncorrect user or password, please try again.");
+                    currentAccount = createNewUser();
+                }
             }
-            if (currentAccount == null) {
-                console.println("\nIncorrect user or password, please try again.");
-                currentAccount = createNewUser();
-            }
+
         }
         return currentAccount;
     }

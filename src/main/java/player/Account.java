@@ -3,13 +3,14 @@ package player;
 import io.zipcoder.casino.utilities.Console;
 
 public class Account {
-    Console console;
+    private Console console;
     private String username;
     private String password;
     private Integer balance;
 
 
-    public Account(String username, String password) {
+    public Account(Console console, String username, String password) {
+        this.console = console;
         this.username = username;
         this.password = password;
         this.balance = 0;
