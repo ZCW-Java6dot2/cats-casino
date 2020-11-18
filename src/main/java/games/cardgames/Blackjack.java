@@ -3,6 +3,7 @@ package games.cardgames;
 
 import interfaces.GamblingGame;
 import interfaces.Game;
+import io.zipcoder.casino.utilities.Console;
 import player.Dealer;
 import player.Player;
 import gametables.BlackjackTable;
@@ -10,6 +11,10 @@ import gametables.BlackjackTable;
 import java.util.ArrayList;
 
 public class Blackjack extends CardGame implements Game, GamblingGame {
+    Console console;
+    public Blackjack(Console console) {
+        this.console = console;
+    }
 
     //TODO:
     Dealer dealer = new Dealer();
@@ -23,7 +28,11 @@ public class Blackjack extends CardGame implements Game, GamblingGame {
     }
 
     public void startGame() {
-
+        console.println("Welcome to BlackJack!");
+        CardGame deck = new CardGame();
+        deck.createDeck();
+        deck.shuffleDeck();
+       console.print(deck.toString());
     }
 
     public void endGame() {
