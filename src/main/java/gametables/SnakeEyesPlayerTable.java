@@ -2,10 +2,9 @@ package gametables;
 
 import interfaces.Game;
 import player.Player;
-
 import java.util.ArrayList;
 
-public class SnakeEyesPlayerTable implements Game {
+public class SnakeEyesPlayerTable {
 
     public void addPlayer(Player player) {
 

@@ -2,7 +2,7 @@ package games.cardgames;
 
 import junit.framework.TestCase;
 
-public class CardSuitesForBlackjackTest extends TestCase {
+public class CardSuitsTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

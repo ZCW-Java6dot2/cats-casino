@@ -1,11 +1,11 @@
 package games.cardgames;
 
-public enum CardSuitesForBlackjack {
+public enum CardSuits {
     HEARTS("♥"), SPADES("♠"), DIAMONDS("♦"), CLUBS("♣");
 
     String suiteText;
 
-    CardSuitesForBlackjack(String suiteText) {
+    CardSuits(String suiteText) {
         this.suiteText = suiteText;
     }
 }

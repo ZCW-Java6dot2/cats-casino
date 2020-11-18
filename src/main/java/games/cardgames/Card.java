@@ -2,14 +2,20 @@ package games.cardgames;
 
 //TODO implement comparable interface
 public class Card extends DeckOfCards implements Comparable<Card> {
-    private CardSuitesForBlackjack cardSuitesForBlackjack;
-    private CardValuesForBlackjack cardValuesForBlackjack;
+    private CardSuits cardSuits;
+    private CardValues cardValues;
 
-    public Card(CardSuitesForBlackjack cardSuitesForBlackjack, CardValuesForBlackjack cardValuesForBlackjack) {
-        this.cardSuitesForBlackjack = cardSuitesForBlackjack;
-        this.cardValuesForBlackjack = cardValuesForBlackjack;
+    public Card(CardSuits cardSuits, CardValues cardValues) {
+        this.cardSuits = cardSuits;
+        this.cardValues = cardValues;
     }
 
+    public String toString() {
+        return this.cardSuits.toString() + " " + this.cardValues.toString();
+    }
+    public CardValues getCardValue() {
+        return this.cardValues;
+    }
     //Comparing cards for the games
     public int compareTo(Card o) {
         return 0;
