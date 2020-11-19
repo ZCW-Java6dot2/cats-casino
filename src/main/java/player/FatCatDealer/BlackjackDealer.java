@@ -1,40 +1,14 @@
-package player;
+package player.FatCatDealer;
 
 import games.cardgames.Card;
 import games.cardgames.Hand;
-import interfaces.Gambler;
 
 import java.util.ArrayList;
 
-public class BlackjackPlayer implements Gambler {
-    Player player;
-    Hand splitHand;
-    private Card card;
+public class BlackjackDealer {
+
     private Hand hand = new Hand();
-
-
-    private boolean hasStood;
-
-    public BlackjackPlayer(Player player) {
-        this.player = player;
-    }
-
-
-    public boolean bet() {
-        return false;
-    }
-
-    public Integer placeBet() {
-        return null;
-    }
-
-    public Integer getWinnings() {
-        return null;
-    }
-
-    public boolean addFunds() {
-        return false;
-    }
+    private Card card;
 
     public void hit(Card card) {
         hand.addCard(card);
@@ -78,5 +52,11 @@ public class BlackjackPlayer implements Gambler {
         }
         dealersCards += "\nFat Cat's score is:  " + getScore();
         return dealersCards;
+    }
+
+    public String fatCatFaceUpCard(){
+        String fatCatCard = "Fat Cat is showing:  ";
+        fatCatCard += hand.getHand().get(1);
+        return fatCatCard;
     }
 }

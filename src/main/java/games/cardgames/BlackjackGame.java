@@ -1,20 +1,18 @@
 package games.cardgames;
 
 
-import gametables.BlackjackEngine;
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
-import player.BlackjackPlayer;
-import player.Dealer;
+import player.FatCatDealer.BlackjackDealer;
 import player.Player;
 
 import java.util.ArrayList;
 
-public class BlackjackGame extends CardGame implements Game, GamblingGame {
+public class BlackjackGame implements Game, GamblingGame {
     Console console;
     private ArrayList<Card> cards;
-    private CardValues cardValues;
+    private Integer integer;
 
     public BlackjackGame(Console console) {
         this.console = console;
@@ -24,12 +22,12 @@ public class BlackjackGame extends CardGame implements Game, GamblingGame {
         this.cards = deck;
     }
 
-    public BlackjackGame(CardValues cardValues) {
-        this.cardValues = cardValues;
+    public BlackjackGame(Integer integer) {
+        this.integer = integer;
     }
 
     //TODO:
-    Dealer dealer = new Dealer();
+    BlackjackDealer blackjackDealer = new BlackjackDealer();
 
 
     public void addPlayer(Player player) {
@@ -49,7 +47,7 @@ public class BlackjackGame extends CardGame implements Game, GamblingGame {
 
     }
 
-    public String results(ArrayList<Integer> scores) {
+    public String results(ArrayList<java.lang.Integer> scores) {
         return null;
     }
 
@@ -61,11 +59,11 @@ public class BlackjackGame extends CardGame implements Game, GamblingGame {
 
     }
 
-    public Integer getPlayerBet() {
+    public java.lang.Integer getPlayerBet() {
         return null;
     }
 
-    public Integer payWinnings() {
+    public java.lang.Integer payWinnings() {
         return null;
     }
 
@@ -80,7 +78,7 @@ public class BlackjackGame extends CardGame implements Game, GamblingGame {
         return null;
     }
     // taking a new card from the stack into the player's array of cards & doubling player's current bet & only hitting 1x
-    public Card doubleDown(Integer bet) {
+    public Card doubleDown(java.lang.Integer bet) {
         return null;
     }
 

@@ -1,12 +1,13 @@
 package gametables;
 
+import games.cardgames.Card;
 import games.cardgames.GoFish;
 import games.cardgames.Hand;
 import interfaces.Game;
 import player.GoFishPlayer;
 import player.Player;
 
-import javax.smartcardio.Card;
+
 import java.util.ArrayList;
 
 public class GoFishEngine {

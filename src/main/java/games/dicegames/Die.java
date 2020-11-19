@@ -5,12 +5,11 @@ import interfaces.Game;
 import java.util.Random;
 
 public class Die {
-    private Integer numOfSides;
+    private Integer numOfSides = 6;
     private Integer faceValue;
 
 
-    public Die(Integer numOfSides) {
-        this.numOfSides = numOfSides;
+    public Die() {
     }
 
 

@@ -6,7 +6,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-public class Craps extends DiceGame implements Game, GamblingGame {
+public class Craps implements Game, GamblingGame {
 
 
     public void addPlayer(Player player) {
