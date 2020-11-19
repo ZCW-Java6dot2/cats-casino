@@ -7,7 +7,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-public class GoFish extends CardGame implements Game {
+public class GoFish implements Game {
 
     //TODO:
     OpponentPlayer opponentPLayer = new OpponentPlayer();
