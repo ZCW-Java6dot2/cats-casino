@@ -1,9 +1,8 @@
 package gametables;
 
-import interfaces.Gambling;
-import player.Player;
+import interfaces.Gambler;
 
-public class CrapsPlayerTable implements Gambling {
+public class CrapsPlayerTable implements Gambler {
 
     public boolean bet() {
         return false;

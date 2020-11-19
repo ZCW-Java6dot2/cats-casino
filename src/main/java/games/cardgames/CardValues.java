@@ -9,3 +9,4 @@ public enum CardValues {
         this.cardValue = cardValue;
     }
 }
+

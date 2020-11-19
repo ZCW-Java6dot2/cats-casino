@@ -16,6 +16,7 @@ public class Card extends DeckOfCards implements Comparable<Card> {
     public CardValues getCardValue() {
         return this.cardValues;
     }
+
     //Comparing cards for the games
     public int compareTo(Card o) {
         return 0;
