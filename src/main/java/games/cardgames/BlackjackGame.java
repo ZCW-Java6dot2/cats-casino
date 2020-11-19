@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class BlackjackGame implements Game, GamblingGame {
     private Console console;
-    private DeckOfCards deck;
+    private DeckOfCards deck = new DeckOfCards();
     private BlackjackPlayer player;
     private BlackjackDealer fatCat;
     private Integer playersBet;
@@ -34,8 +34,6 @@ public class BlackjackGame implements Game, GamblingGame {
         this.currentAccount = player.getPlayersAccount();
         this.fatCat = fatCat;
         this.playersBet = 0;
-        deck.createDeck();
-        deck.shuffleDeck();
         this.stillPlaying = true;
     }
 
@@ -140,6 +138,8 @@ public class BlackjackGame implements Game, GamblingGame {
         // console.println(String.format("Welcome to ", getGameName(gameName), "!"));
 
         while (stillPlaying) {
+            deck.createDeck();
+            deck.shuffleDeck();
             setPlayerHand();
             setDealerHand();
 

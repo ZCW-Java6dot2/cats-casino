@@ -8,8 +8,6 @@ import io.zipcoder.casino.utilities.Console;
 import java.util.ArrayList;
 
 public class BlackjackPlayer extends Player implements Gambler {
-    Player player;
-    Hand splitHand;
     private Card card;
     private Hand hand = new Hand();
 
