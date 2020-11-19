@@ -1,6 +1,5 @@
 package games.cardgames;
 
-
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
@@ -26,9 +25,6 @@ public class BlackjackGame implements Game, GamblingGame {
     //TODO HOW TO CONSTRUCT ACCOUNT AND CARDGAME MENU AND DECK OF CARDS. SOS SEND HELP.
 
 
-
-
-
     public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat) {
         this.player = player;
         this.currentAccount = player.getPlayersAccount();
@@ -42,7 +38,6 @@ public class BlackjackGame implements Game, GamblingGame {
     public DeckOfCards getDeck() {
         return deck;
     }
-
 
     public void drawCardPlayer() {
         player.hit(deck.getCard());
@@ -85,8 +80,6 @@ public class BlackjackGame implements Game, GamblingGame {
         return playersBet;
     }
 
-
-
     public void placeBet() {
         currentAccount.setBalance(player.getPlayersAccount().getBalance() - playersBet);
     }
@@ -114,8 +107,6 @@ public class BlackjackGame implements Game, GamblingGame {
         fatCat.getHand().add(deck.getCard());
     }
 
-
-
     public Boolean checkBlackjack() {
         if (this.fatCat.checkBlackjack() && this.player.checkBlackjack()) {
             console.println("Push! You both got Blackjack.\n");
@@ -133,7 +124,6 @@ public class BlackjackGame implements Game, GamblingGame {
         }
         return false;
     }
-
 
     public void startGame() {
         //TODO
@@ -215,11 +205,6 @@ public class BlackjackGame implements Game, GamblingGame {
                     break;
                 }
             }
-
         }
-
-
     }
-
-
 }
