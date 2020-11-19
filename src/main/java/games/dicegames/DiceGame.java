@@ -16,6 +16,8 @@ public class DiceGame implements Game {
         this.players = players;
     }
 
+    public DiceGame(){};
+
     public void rollDice() {
     }
 

@@ -18,6 +18,7 @@ public class Die {
 
         Random randomNumGenerator = new Random();
         faceValue = randomNumGenerator.nextInt(numOfSides) + 1;
+
     }
 
 
@@ -28,7 +29,5 @@ public class Die {
 
 
 
-
-
-
 }
+
