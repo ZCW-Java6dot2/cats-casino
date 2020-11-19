@@ -11,11 +11,6 @@ public class BlackjackGameNotes {
     player.Account playersAccount;
     Console console;
 
-//    public Account(String username, String password) {
-//        this.username = username;
-//        this.password = password;
-//        this.balance = 0;
-//    }
 
     public BlackjackGameNotes(Console console) {
         this.console = console;
