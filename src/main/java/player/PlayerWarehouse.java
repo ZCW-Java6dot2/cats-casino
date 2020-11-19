@@ -6,13 +6,13 @@ import io.zipcoder.casino.utilities.Console;
 import java.util.ArrayList;
 
 
-public class Players {
+public class PlayerWarehouse {
     Console console;
     ArrayList<Player> listOfPlayers;
     Player currentPlayer;
 
 
-    public Players(Console console) {
+    public PlayerWarehouse(Console console) {
         this.console = console;
     }
 
