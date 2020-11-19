@@ -5,7 +5,8 @@ import games.dicegames.SnakeEyes;
 import io.zipcoder.casino.utilities.Console;
 import menus.LoginMenu;
 import player.Account;
-import player.Accounts;
+import player.Player;
+import player.Players;
 
 
 public class Casino {
@@ -13,26 +14,25 @@ public class Casino {
 
 
         Console console = new Console(System.in, System.out);
-        SnakeEyes snakeEyes = new SnakeEyes(console);
-        snakeEyes.startGame();
-
+        LoginMenu loginMenu = new LoginMenu(console, preLoadAccounts(console));
+        loginMenu.runLoginMenu();
 
     }
 
-    public static Accounts preLoadAccounts (Console console){
-        Accounts accounts = new Accounts(console);
-        Account preAccountOne = new Account(console, "Kyle", "2020");
-        accounts.getListOfAccounts().add(preAccountOne);
-        Account preAccountTwo = new Account(console, "Peter", "2020");
-        accounts.getListOfAccounts().add(preAccountOne);
-        Account preAccountThree = new Account(console, "Shubham", "266");
-        accounts.getListOfAccounts().add(preAccountOne);
-        Account preAccountFour = new Account(console, "Amanda", "345");
-        accounts.getListOfAccounts().add(preAccountTwo);
-        Account preAccountFive = new Account(console, "Pompy", "123");
-        accounts.getListOfAccounts().add(preAccountThree);
+    public static Players preLoadAccounts (Console console){
+        Players players = new Players(console);
+        Player prePlayerOne = new Player(console, "Kyle", "2020", new Account(console));
+        players.addPreexistingPlayers(prePlayerOne);
+        Player prePlayerTwo = new Player(console, "Peter", "2020", new Account(console));
+        players.addPreexistingPlayers(prePlayerTwo);
+        Player prePlayerThree = new Player(console, "Shubham", "266", new Account(console));
+        players.addPreexistingPlayers(prePlayerThree);
+        Player prePlayerFour = new Player(console, "Amanda", "345", new Account(console));
+        players.addPreexistingPlayers(prePlayerFour);
+        Player prePlayerFive = new Player(console, "Pompy", "123", new Account(console));
+        players.addPreexistingPlayers(prePlayerFive);
 
-        return accounts;
+        return players;
     }
 
 }

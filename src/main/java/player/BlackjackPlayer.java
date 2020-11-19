@@ -3,10 +3,11 @@ package player;
 import games.cardgames.Card;
 import games.cardgames.Hand;
 import interfaces.Gambler;
+import io.zipcoder.casino.utilities.Console;
 
 import java.util.ArrayList;
 
-public class BlackjackPlayer implements Gambler {
+public class BlackjackPlayer extends Player implements Gambler {
     Player player;
     Hand splitHand;
     private Card card;
@@ -15,8 +16,9 @@ public class BlackjackPlayer implements Gambler {
 
     private boolean hasStood;
 
-    public BlackjackPlayer(Player player) {
-        this.player = player;
+
+    public BlackjackPlayer(Console console, String username, String password, Account playersAccount) {
+        super(console,username,password,playersAccount);
     }
 
 

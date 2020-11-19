@@ -12,16 +12,16 @@ import player.FatCatDealer.BlackjackDealer;
 import java.util.ArrayList;
 
 public class BlackjackGame implements Game, GamblingGame {
-    Console console;
+    private Console console;
     private DeckOfCards deck;
     private BlackjackPlayer player;
     private BlackjackDealer fatCat;
-    private Account currentAccount;
     private Integer playersBet;
     private boolean stillPlaying;
-    Integer input;
+    private Integer input;
     Integer makeDecision;
     private CardGameMenu cardGameMenu;
+    private Account currentAccount;
 
     //TODO HOW TO CONSTRUCT ACCOUNT AND CARDGAME MENU AND DECK OF CARDS. SOS SEND HELP.
 
@@ -31,6 +31,7 @@ public class BlackjackGame implements Game, GamblingGame {
 
     public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat) {
         this.player = player;
+        this.currentAccount = player.getPlayersAccount();
         this.fatCat = fatCat;
         this.playersBet = 0;
         deck.createDeck();
@@ -87,7 +88,7 @@ public class BlackjackGame implements Game, GamblingGame {
 
 
     public void placeBet() {
-        currentAccount.setBalance(currentAccount.getBalance() - playersBet);
+        currentAccount.setBalance(player.getPlayersAccount().getBalance() - playersBet);
     }
 
     public void winnings(Integer playersBet) {
