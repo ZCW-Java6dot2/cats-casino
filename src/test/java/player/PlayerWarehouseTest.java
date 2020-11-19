@@ -2,7 +2,7 @@ package player;
 
 import junit.framework.TestCase;
 
-public class PlayersTest extends TestCase {
+public class PlayerWarehouseTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();

@@ -41,6 +41,11 @@ public class Craps implements Game, GamblingGame {
         return null;
     }
 
+    @Override
+    public void winnings(Integer playersBet) {
+
+    }
+
     public Integer payWinnings() {
         return null;
     }

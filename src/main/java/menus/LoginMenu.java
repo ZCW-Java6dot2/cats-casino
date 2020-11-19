@@ -3,20 +3,24 @@ package menus;
 import io.zipcoder.casino.utilities.Console;
 
 import player.Player;
-import player.Players;
+import player.PlayerWarehouse;
 
 public class LoginMenu {
     private Console console;
     MainMenu mainMenu;
     CasinoProfileMenu casinoProfileMenu;
     private boolean loginMenuPower = true;
-    Players players;
+    PlayerWarehouse playerWarehouse;
 
-    public LoginMenu(Console console, Players players) {
+    public LoginMenu(Console console, PlayerWarehouse playerWarehouse) {
         this.console = console;
         this.mainMenu = new MainMenu(console);
         this.casinoProfileMenu = new CasinoProfileMenu(console);
-        this.players = players;
+        this.playerWarehouse = playerWarehouse;
+    }
+
+    public LoginMenu(Console console) {
+        this.console = console;
     }
 
     public String runLoginMenu() {
@@ -41,11 +45,11 @@ public class LoginMenu {
         Player currentPlayer = null;
         switch (selection) {
             case 1:
-                currentPlayer = players.loginUser();
+                currentPlayer = playerWarehouse.loginUser();
                 output = mainMenu.runMainMenu(currentPlayer);
                 break;
             case 2:
-                currentPlayer = players.createNewUser();
+                currentPlayer = playerWarehouse.createNewUser();
                 output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 3:
