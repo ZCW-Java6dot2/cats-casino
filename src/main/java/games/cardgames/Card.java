@@ -20,7 +20,7 @@ public class Card extends DeckOfCards implements Comparable<Card> {
 
     @Override
     public String toString() {
-        if (this.getValue() == 1) {
+        if (this.getValue() == 11) {
             if (this.getSuit() == "Hearts") {
                 return "Ace of ♥";
             } else if (this.getSuit() == "Spades") {
