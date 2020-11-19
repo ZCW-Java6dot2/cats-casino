@@ -1,38 +1,24 @@
 package games.cardgames;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import player.BlackjackPlayer;
 
-public class BlackjackGameTest extends TestCase {
+public class BlackjackGameTest {
+   @Test
+    public void blackjackGameConstructorTest(){
+       //given
+       //when
+       //then
+   }
 
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-    public void tearDown() throws Exception {
-    }
-
-    public void testAddPlayer() {
-    }
-
-    public void testRemovePlayer() {
-    }
-
-    public void testStartGame() {
-
-    }
-
-    public void testEndGame() {
-    }
-
-    public void testResults() {
-    }
-
-    public void testGetPlayerBet() {
-    }
-
-    public void testPayWinnings() {
-    }
-
-    public void testTestStartGame() {
-    }
+   @Test
+    public void getPlayerScoreTest(){
+       //given
+       BlackjackPlayer player = new BlackjackPlayer(null, null, null, null);
+       int expectedScore = 50;
+       //when
+//       player.setPlayerScore(expectedScore);
+//       int actualScore = player.getScorePlayer();
+//       //then
+   }
 }
