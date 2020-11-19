@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 public class PlayerWarehouse {
     Console console;
-    ArrayList<Player> listOfPlayers;
+    ArrayList<Player> listOfPlayers = new ArrayList<>();
     Player currentPlayer;
-
 
     public PlayerWarehouse(Console console) {
         this.console = console;
+        preLoadAccounts();
     }
 
     public Player getCurrentPlayer() {
@@ -64,5 +64,18 @@ public class PlayerWarehouse {
 
     public void addPreexistingPlayers(Player newPlayer) {
         this.listOfPlayers.add(newPlayer);
+    }
+
+    public void preLoadAccounts(){
+        Player prePlayerOne = new Player(console,"Kyle", "2020", new Account(console));
+        listOfPlayers.add(prePlayerOne);
+        Player prePlayerTwo = new Player(console,"Peter", "2020", new Account(console));
+        listOfPlayers.add(prePlayerTwo);
+        Player prePlayerThree = new Player(console,"Shubham", "266", new Account(console));
+        listOfPlayers.add(prePlayerThree);
+        Player prePlayerFour = new Player(console,"Amanda", "345", new Account(console));
+        listOfPlayers.add(prePlayerFour);
+        Player prePlayerFive = new Player(console,"Pompy", "123", new Account(console));
+        listOfPlayers.add(prePlayerFive);
     }
 }
