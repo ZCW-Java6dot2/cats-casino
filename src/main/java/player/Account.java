@@ -3,10 +3,17 @@ package player;
 import io.zipcoder.casino.utilities.Console;
 
 public class Account {
+    private Account currentAccount;
     private Console console;
     private String username;
     private String password;
     private Integer balance;
+    private Integer newBalance;
+
+
+    public Account(Account currentAccount){
+        this.currentAccount = currentAccount;
+    }
 
 
     public Account(Console console, String username, String password) {
@@ -60,7 +67,7 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
-        this.balance = balance;
+    public void setBalance(Integer newBalance) {
+        this.newBalance = newBalance;
     }
 }
