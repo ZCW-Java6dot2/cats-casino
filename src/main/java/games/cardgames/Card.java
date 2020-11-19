@@ -10,7 +10,6 @@ public class Card extends DeckOfCards implements Comparable<Card> {
         this.cardValue = cardValue;
     }
 
-
     public String getSuit() {
         return cardSuits;
     }
