@@ -35,4 +35,28 @@ public class BlackjackDealer {
         }
         return score;
     }
+
+    public boolean checkBlackjack() {
+        if (getScore() == 21 && hand.getHandSize() == 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString(){
+        String dealersCards = "Fat Cat's cards are:  ";
+        for (Card card: hand.getHand()) {
+            dealersCards += card.toString() + " ";
+        }
+        dealersCards += "\nFat Cat's score is:  " + getScore();
+        return dealersCards;
+    }
+
+    public String fatCatFaceUpCard(){
+        String fatCatCard = "Fat Cat is showing:  ";
+        fatCatCard += hand.getHand().get(1);
+        return fatCatCard;
+    }
 }
