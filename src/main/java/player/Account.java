@@ -9,6 +9,7 @@ public class Account {
     private Integer balance;
 
 
+
     public Account(Console console, String username, String password) {
         this.console = console;
         this.username = username;
