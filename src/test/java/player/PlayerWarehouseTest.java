@@ -1,13 +1,21 @@
 package player;
 
-import junit.framework.TestCase;
 
-public class PlayerWarehouseTest extends TestCase {
+import org.junit.Assert;
+import org.junit.Test;
 
-    public void setUp() throws Exception {
-        super.setUp();
+public class PlayerWarehouseTest {
+    @Test
+    public void getCurrentPlayerTest() {
+        //given
+        Player player = new Player(null, null, null, null);
+        PlayerWarehouse playerWarehouse = new PlayerWarehouse(null);
+        Player expectedPlayer = player;
+        //when
+        playerWarehouse.setCurrentPlayer(expectedPlayer);
+        Player actualPlayer = playerWarehouse.getCurrentPlayer();
+        //then
+        Assert.assertEquals(expectedPlayer, actualPlayer);
     }
 
-    public void tearDown() throws Exception {
-    }
 }
