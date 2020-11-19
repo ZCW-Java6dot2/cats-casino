@@ -4,7 +4,7 @@ package games.cardgames;
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
-import player.Dealer;
+import player.FatCatDealer.BlackjackDealer;
 import player.Player;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class BlackjackGame extends CardGame implements Game, GamblingGame {
     }
 
     //TODO:
-    Dealer dealer = new Dealer();
+    BlackjackDealer blackjackDealer = new BlackjackDealer();
 
 
     public void addPlayer(Player player) {
