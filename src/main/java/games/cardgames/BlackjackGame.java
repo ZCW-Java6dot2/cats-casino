@@ -9,7 +9,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-public class BlackjackGame extends CardGame implements Game, GamblingGame {
+public class BlackjackGame implements Game, GamblingGame {
     Console console;
     private ArrayList<Card> cards;
     private Integer integer;
