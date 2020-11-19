@@ -46,7 +46,7 @@ public class BlackjackGameNotes {
             // Take the players bet
             console.getIntegerInput("You have $" + account + ", how much would you like to bet?");
             if (playersBet > account) {
-                System.out.println("You cannot bet more than you have. Try again.");
+                console.println("You cannot bet more than you have. Try again.");
                 break;
             }
 
