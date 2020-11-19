@@ -1,15 +1,15 @@
 package games.cardgames;
 
 import io.zipcoder.casino.utilities.Console;
-import player.Account;
 
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 
 public class BlackjackGameNotes {
     private CardValues cardValues;
     player.Account playersAccount;
     Console console;
+
+
 
 
     public BlackjackGameNotes(Console console) {
@@ -39,9 +39,10 @@ public class BlackjackGameNotes {
         //Game Loop
         while (account > 0) {
             // Take the players bet
-            console.getIntegerInput("You have $" + account + ", how much would you like to bet?");
+            Integer playersBet = console.getIntegerInput("You have $" + account + ", how much would you like to bet?");
             if (playersBet > account) {
                 console.println("You cannot bet more than you have. Try again.");
+
                 break;
             }
 

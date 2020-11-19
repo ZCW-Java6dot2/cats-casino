@@ -11,12 +11,17 @@ public class LoginMenu {
     Accounts accounts;
     private boolean loginMenuPower = true;
 
-    public LoginMenu(Console console) {
+    public LoginMenu(Console console, Accounts accounts) {
         this.console = console;
         this.mainMenu = new MainMenu(console);
         this.casinoProfileMenu = new CasinoProfileMenu(console);
-        this.accounts = new Accounts(console);
+        this.accounts = accounts;
     }
+
+    public LoginMenu(Console console) {
+        this.console = console;
+    }
+
 
     public String runLoginMenu() {
         String output = null;
@@ -30,7 +35,7 @@ public class LoginMenu {
                     "---------------------------------\n");
             Integer selection = console.getIntegerInput("Enter choice here: -> ");
             output = loginMenuSwitch(selection);
-
+            console.println(output);
         }
         return output;
     }
