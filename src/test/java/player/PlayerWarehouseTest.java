@@ -18,4 +18,13 @@ public class PlayerWarehouseTest {
         Assert.assertEquals(expectedPlayer, actualPlayer);
     }
 
+    @Test
+    public void addPreexistingPlayersTest(){
+        //given
+        Player newPlayer = new Player(null, "newGuy", "jfjf", null);
+        PlayerWarehouse playerWarehouse = new PlayerWarehouse(null);
+        //when
+        playerWarehouse.addPreexistingPlayers(newPlayer);
+        //then
+    }
 }
