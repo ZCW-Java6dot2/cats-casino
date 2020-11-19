@@ -1,17 +1,21 @@
 package gametables;
 
-import games.cardgames.Blackjack;
+import games.cardgames.BlackjackGame;
 import player.BlackjackPlayer;
-
+import player.Player;
 
 
 public class BlackjackEngine {
     BlackjackPlayer blackjackPlayer;
-    Blackjack blackjack;
+    BlackjackGame blackjackGame;
+    BlackjackEngine blackjackEngine;
 
-    public BlackjackEngine(Blackjack blackjack, BlackjackPlayer blackjackPlayer) {
-        this.blackjack = blackjack;
+    public BlackjackEngine(BlackjackGame blackjackGame, BlackjackPlayer blackjackPlayer) {
+        this.blackjackGame = blackjackGame;
         this.blackjackPlayer = blackjackPlayer;
     }
+//    public void addPlayer(BlackjackPlayer blackjackPlayer) {
+//        BlackjackEngine.put(blackjackPlayer);
+//    }
 
 }

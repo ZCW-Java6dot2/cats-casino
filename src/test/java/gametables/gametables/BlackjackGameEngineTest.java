@@ -2,7 +2,7 @@ package gametables.gametables;
 
 import junit.framework.TestCase;
 
-public class BlackjackEngineTest extends TestCase {
+public class BlackjackGameEngineTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
