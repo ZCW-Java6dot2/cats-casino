@@ -2,7 +2,6 @@ package player.FatCatDealer;
 
 import games.cardgames.Card;
 import games.cardgames.Hand;
-
 import java.util.ArrayList;
 
 public class BlackjackDealer {
