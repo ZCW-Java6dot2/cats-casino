@@ -6,20 +6,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class AccountTest {
-    @Test
-    public void accountConstructorTest(){
-        //given
-        Console expectedConsole = new Console(null, null);
-        Integer expectedBalance = 150;
-        Account account = new Account(null);
-        //when
-        //then
-    }
 
     @Test
     public void getBalanceTest(){
         //given
-        Account newAccount = new Account(null);
+        Console console = new Console(System.in, System.out);
+        Account newAccount = new Account(console);
         Integer expectedBalance = 30;
         //when
         newAccount.setBalance(expectedBalance);
