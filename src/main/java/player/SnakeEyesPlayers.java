@@ -1,7 +1,7 @@
 package player;
 
 
-public class SnakeEyesPlayers {
+public class           SnakeEyesPlayers {
     Player player;
 
     public SnakeEyesPlayers(Player player) {

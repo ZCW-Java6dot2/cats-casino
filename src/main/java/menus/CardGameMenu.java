@@ -7,13 +7,16 @@ import player.FatCatDealer.BlackjackDealer;
 import player.FatCatDealer.GoFishDealer;
 import player.GoFishPlayer;
 import player.Player;
+
 public class CardGameMenu {
     private Console console;
     private Player player;
     private boolean cardGameMenuPower = true;
+
     public CardGameMenu(Console console) {
         this.console = console;
     }
+
     public String runCardGameMenu(Player currentPlayer) {
         this.player = currentPlayer;
         Integer selection = 0;
@@ -40,17 +43,11 @@ public class CardGameMenu {
                 goFishGame.startGame();
                 break;
             case 3:
-                //run main menu
                 cardGameMenuPower = false;
                 break;
             default:
+                console.println("Please choose a correct option from the menu.");
                 break;
         }
-    }
-    public String runBlackjack() {
-        return null;
-    }
-    public String runGoFish() {
-        return null;
     }
 }

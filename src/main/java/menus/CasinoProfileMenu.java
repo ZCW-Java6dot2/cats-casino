@@ -9,6 +9,7 @@ public class CasinoProfileMenu {
     Console console;
     private boolean casinoMenuPower = true;
     private boolean managedFundsMenuPower = true;
+    private MainMenu mainMenu;
 
     public CasinoProfileMenu(Console console) {
         this.console = console;
@@ -47,7 +48,9 @@ public class CasinoProfileMenu {
                 output = "Account password change successful";
                 break;
             case 4:
-                casinoMenuPower = false;
+                MainMenu mainMenu = new MainMenu(console);
+                mainMenu.runMainMenu(currentPlayer);
+                output = "\nReturning to Main Menu";
                 break;
             default:
                 output = "Please choose a correct option from the menu.";
