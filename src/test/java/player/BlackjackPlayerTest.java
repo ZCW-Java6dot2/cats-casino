@@ -20,7 +20,7 @@ public class BlackjackPlayerTest {
     public void toStringTest() {
         //given
         BlackjackPlayer blackjackPlayer = new BlackjackPlayer(null, "Player1", "qwerty", null);
-        String expectedString = "Fat Cat's cards are:  \n" + "Fat Cat's score is:  0";
+        String expectedString = "Your cards are:  \n" + "Your score is:  0";
         //when
         String actualString = blackjackPlayer.toString();
         //then
