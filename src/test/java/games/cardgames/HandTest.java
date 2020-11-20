@@ -1,13 +1,38 @@
 package games.cardgames;
 
-import junit.framework.TestCase;
 
-public class HandTest extends TestCase {
+import org.junit.Assert;
+import org.junit.Test;
 
-    public void setUp() throws Exception {
-        super.setUp();
+import java.util.ArrayList;
+
+public class HandTest {
+
+    @Test
+    public void getHandTest(){
+        //given
+        Hand hand = new Hand();
+        ArrayList<Card> expectedHand = new ArrayList<>();
+        //when
+        hand.setHand(expectedHand);
+        ArrayList<Card> actualHand = hand.getHand();
+        //then
+        Assert.assertEquals(expectedHand, actualHand);
     }
 
-    public void tearDown() throws Exception {
+    @Test
+    public void getHandSizeTest(){
+        //given
+        Hand hand = new Hand();
+        int expectedHandSize = 0;
+        //when
+        int actualHandSize = hand.getHandSize();
+        //then
+        Assert.assertEquals(expectedHandSize, actualHandSize);
     }
+
+
+
+
+
 }

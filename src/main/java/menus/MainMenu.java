@@ -1,24 +1,27 @@
 package menus;
 
 import io.zipcoder.casino.utilities.Console;
-import player.Account;
+import player.Player;
 
 public class MainMenu {
     private Console console;
     private CasinoProfileMenu casinoProfileMenu;
-
+    private CardGameMenu cardGameMenu;
+    private DiceGameMenu diceGameMenu;
     private boolean mainMenuPower = true;
 
     public MainMenu(Console console) {
         this.console = console;
         this.casinoProfileMenu = new CasinoProfileMenu(console);
+        this.cardGameMenu = new CardGameMenu(console);
+        this.diceGameMenu = new DiceGameMenu(console);
     }
 
-    public String runMainMenu(Account account) {
+    public String runMainMenu(Player currentPlayer) {
         String output = null;
         //TODO: Add ASCII ART
         while (mainMenuPower) {
-            System.out.println("\n" +
+            console.println("\n" +
                     "Please choose from the following options:\n" +
                     "1 - Play Card Games\n" +
                     "2 - Play Dice Games\n" +
@@ -26,25 +29,23 @@ public class MainMenu {
                     "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
             Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
-            output = runMainMenuSwitch(newSelection, account);
+            output = runMainMenuSwitch(newSelection, currentPlayer);
         }
         return output;
     }
 
-    public String runMainMenuSwitch(Integer newSelection, Account account) {
+    public String runMainMenuSwitch(Integer newSelection, Player currentPlayer) {
         String output = null;
         boolean powerOn = true;
         switch (newSelection) {
             case 1:
-                //Take to card game menu
-                output = "TESTING THIS OUT";
+                output = cardGameMenu.runCardGameMenu(currentPlayer);
                 break;
             case 2:
-                //Take to dice game menu
+                output = diceGameMenu.runDiceGameMenu(currentPlayer);
                 break;
             case 3:
-
-                output = casinoProfileMenu.runCasinoProfileMenu(account);
+                output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 4:
                 mainMenuPower = false;
@@ -53,7 +54,6 @@ public class MainMenu {
                 output = "Please choose a correct option from the menu.";
                 break;
         }
-        return output;
+        return output = "Leaving Main Menu.";
     }
-
 }

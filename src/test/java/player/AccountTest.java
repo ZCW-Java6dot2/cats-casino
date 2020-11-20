@@ -1,13 +1,23 @@
 package player;
 
-import junit.framework.TestCase;
 
-public class AccountTest extends TestCase {
+import io.zipcoder.casino.utilities.Console;
+import org.junit.Assert;
+import org.junit.Test;
 
-    public void setUp() throws Exception {
-        super.setUp();
-    }
+public class AccountTest {
 
-    public void tearDown() throws Exception {
+    @Test
+    public void getBalanceTest(){
+        //given
+        Console console = new Console(System.in, System.out);
+        Account newAccount = new Account(console);
+        Integer expectedBalance = 30;
+        //when
+        newAccount.setBalance(expectedBalance);
+        Integer actualBalance = newAccount.getBalance();
+        //then
+        Assert.assertEquals(expectedBalance, actualBalance);
     }
 }
+

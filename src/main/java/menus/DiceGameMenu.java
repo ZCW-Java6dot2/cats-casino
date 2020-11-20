@@ -1,13 +1,25 @@
 package menus;
 
+import games.cardgames.BlackjackGame;
+import games.dicegames.Craps;
+import games.dicegames.SnakeEyes;
 import io.zipcoder.casino.utilities.Console;
+import player.BlackjackPlayer;
+import player.CrapsPlayer;
+import player.FatCatDealer.BlackjackDealer;
+import player.Player;
+import player.SnakeEyesPlayers;
 
 public class DiceGameMenu {
-    Console console;
+    private Console console;
+    private boolean diceGameMenuPower = true;
 
+    public DiceGameMenu(Console console) {
+        this.console = console;
+    }
 
-    public String runDiceGameMenu() {
-    boolean diceGameMenuPower = true;
+    public String runDiceGameMenu(Player currentPlayer) {
+    diceGameMenuPower = true;
     //TODO: Add ASCII ART
         Integer selection = 0;
         while (diceGameMenuPower) {
@@ -16,38 +28,33 @@ public class DiceGameMenu {
                 "1 - Play Craps\n" +
                 "2 - Play Snake Eyes\n" +
                 "3 - Return to Main Menu\n" +
-                "---------------------------------\n" +
-                "Enter choice here: -> ");
+                "---------------------------------\n");
             selection = console.getIntegerInput("Enter choice here: -> ");
-            diceGameMenuSwitch(selection);
+            diceGameMenuSwitch(selection, currentPlayer);
     }
         return String.valueOf(selection);
 }
 
-    public void diceGameMenuSwitch(Integer selection) {
+    public void diceGameMenuSwitch(Integer selection, Player currentPlayer) {
         boolean powerOn = true;
         switch (selection) {
             case 1:
-                //Play craps
+                CrapsPlayer currentCrapsPlayer = new CrapsPlayer(console, currentPlayer.getUsername(), currentPlayer.getPassword(), currentPlayer.getPlayersAccount());
+                Craps crapsGame = new Craps(console, currentCrapsPlayer);
+                crapsGame.startGame();
                 break;
             case 2:
-                //Play snake
+                SnakeEyes snakeEyes = new SnakeEyes(console);
+                snakeEyes.startGame();
                 break;
-            case 4:
-                powerOn = false;
+            case 3:
+                diceGameMenuPower = false;
                 break;
             default:
+                console.println("Please choose a correct option from the menu.");
                 break;
         }
 
-    }
-
-    public String runCraps() {
-        return null;
-    }
-
-    public String runSnake() {
-        return null;
     }
 
 }
