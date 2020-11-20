@@ -22,8 +22,6 @@ public class BlackjackGame implements Game, GamblingGame {
     private CardGameMenu cardGameMenu;
     private Account currentAccount;
 
-    //TODO HOW TO CONSTRUCT ACCOUNT AND CARDGAME MENU AND DECK OF CARDS. SOS SEND HELP.
-
 
     public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat, Console console) {
         this.player = player;
@@ -136,7 +134,7 @@ public class BlackjackGame implements Game, GamblingGame {
 
             input = console.getIntegerInput("Would you like to play a hand or leave? \n1: Play a hand \n2: Leave the game\n");
             while (input != 1 && input != 2) {
-               input = console.getIntegerInput("Would you like to play a hand or leave? \n1: Play a hand \n2: Leave the game\n");
+                input = console.getIntegerInput("Would you like to play a hand or leave? \n1: Play a hand \n2: Leave the game\n");
             }
             if (input == 2) {
                 cardGameMenu.runCardGameMenu(player);
@@ -151,59 +149,62 @@ public class BlackjackGame implements Game, GamblingGame {
             if (checkBlackjack()) {
                 continue;
             }
-        }
 
-        makeDecision = console.getIntegerInput("\n1: Hit \n2: Stay");
-        while (player.getScore() <= 21) {
-            while (makeDecision != 1 && makeDecision != 2) {
-                makeDecision = console.getIntegerInput("\n1: Hit \n2: Stay");
-            }
-            if (makeDecision == 1) {
-                drawCardPlayer();
-                console.println(getPlayerHand().toString() + "\n");
-                if (player.getScore() <= 21) {
+
+            makeDecision = console.getIntegerInput("\n1: Hit \n2: Stay");
+            while (player.getScore() <= 21) {
+                while (makeDecision != 1 && makeDecision != 2) {
                     makeDecision = console.getIntegerInput("\n1: Hit \n2: Stay");
                 }
+                if (makeDecision == 1) {
+                    drawCardPlayer();
+                    console.println(getPlayerHand().toString() + "\n");
+                    if (player.getScore() <= 21) {
+                        makeDecision = console.getIntegerInput("\n1: Hit \n2: Stay");
+                    }
 
-                if (bustPlayer()) {
-                    console.println("You busted!");
-                    player.getHand().clear();
-                    fatCat.getHand().clear();
-                    break;
+                    if (bustPlayer()) {
+                        console.println("You busted!");
+                        player.getHand().clear();
+                        fatCat.getHand().clear();
+                        break;
+                    }
                 }
-            }
-            if (makeDecision == 2) {
-                console.println(fatCat.toString());
-                while (fatCat.getScore() < 17) {
-                    drawCardDealer();
-                    console.println(fatCat.toString() + "\n");
-                }
+                if (makeDecision == 2) {
+                    console.println(player.toString());
+                    console.println(fatCat.toString());
+                    while (fatCat.getScore() < 17) {
+                        drawCardDealer();
+                        console.println(fatCat.toString() + "\n");
+                        break;
+                    }
 
-                if (bustDealer()) {
-                    console.println("Fat Cat Busted. You win!");
-                    winnings(playersBet);
-                    player.getHand().clear();
-                    fatCat.getHand().clear();
-                    break;
-                }
-                if (fatCat.getScore() > player.getScore()) {
-                    console.println("Fat Cat Wins!");
-                    player.getHand().clear();
-                    fatCat.getHand().clear();
-                    break;
-                }
-                if (fatCat.getScore() < player.getScore()) {
-                    console.println("You win!");
-                    winnings(playersBet);
-                    player.getHand().clear();
-                    fatCat.getHand().clear();
-                    break;
-                } else {
-                    console.println("You pushed!");
-                    push(playersBet);
-                    player.getHand().clear();
-                    fatCat.getHand().clear();
-                    break;
+                    if (bustDealer()) {
+                        console.println("Fat Cat Busted. You win!");
+                        winnings(playersBet);
+                        player.getHand().clear();
+                        fatCat.getHand().clear();
+                        break;
+                    }
+                    if (fatCat.getScore() > player.getScore()) {
+                        console.println("Fat Cat Wins!");
+                        player.getHand().clear();
+                        fatCat.getHand().clear();
+                        break;
+                    }
+                    if (fatCat.getScore() < player.getScore()) {
+                        console.println("You win!");
+                        winnings(playersBet);
+                        player.getHand().clear();
+                        fatCat.getHand().clear();
+                        break;
+                    } else {
+                        console.println("You pushed!");
+                        push(playersBet);
+                        player.getHand().clear();
+                        fatCat.getHand().clear();
+                        break;
+                    }
                 }
             }
         }

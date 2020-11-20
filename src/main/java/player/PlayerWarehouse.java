@@ -68,6 +68,7 @@ public class PlayerWarehouse {
 
     public void preLoadAccounts(){
         Player prePlayerOne = new Player(console,"Kyle", "2020", new Account(console));
+        prePlayerOne.getPlayersAccount().setBalance(1000);
         listOfPlayers.add(prePlayerOne);
         Player prePlayerTwo = new Player(console,"Peter", "2020", new Account(console));
         listOfPlayers.add(prePlayerTwo);

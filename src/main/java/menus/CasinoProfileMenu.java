@@ -9,7 +9,7 @@ public class CasinoProfileMenu {
     Console console;
     private boolean casinoMenuPower = true;
     private boolean managedFundsMenuPower = true;
-    private MainMenu mainMenu;
+
 
     public CasinoProfileMenu(Console console) {
         this.console = console;
@@ -25,7 +25,7 @@ public class CasinoProfileMenu {
                     "1 - Manage Funds\n" +
                     "2 - Change Username\n" +
                     "3 - Change Password\n" +
-                    "4 - Return to Main Menu\n" +
+                    "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
             Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
             output = casinoProfileSwitch(newSelection, currentPlayer);
@@ -48,8 +48,7 @@ public class CasinoProfileMenu {
                 output = "Account password change successful";
                 break;
             case 4:
-                MainMenu mainMenu = new MainMenu(console);
-                mainMenu.runMainMenu(currentPlayer);
+                casinoMenuPower = false;
                 output = "\nReturning to Main Menu";
                 break;
             default:

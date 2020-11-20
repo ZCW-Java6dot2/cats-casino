@@ -47,11 +47,11 @@ public class BlackjackPlayer extends Player implements Gambler {
         int score = 0;
 
         for (int i = 0; i < hand.getHandSize(); i++) {
+            int valueOfCurrentCard = getHand().get(i).getValue();
+            score += valueOfCurrentCard;
             boolean isCardAce = getHand().get(i).getValue() == 1;
             if (isCardAce == true) {
                 aceCounter += 1;
-                int valueOfCurrentCard = getHand().get(i).getValue();
-                score += valueOfCurrentCard;
             }
             if (aceCounter > 0 && score < 10) {
                 score += 10;
@@ -70,12 +70,12 @@ public class BlackjackPlayer extends Player implements Gambler {
 
     @Override
     public String toString() {
-        String dealersCards = "Fat Cat's cards are:  ";
+        String playerHand = "Your cards are:  ";
         for (Card card : hand.getHand()) {
-            dealersCards += card.toString() + " ";
+            playerHand += card.toString() + " ";
         }
-        dealersCards += "\nFat Cat's score is:  " + getScore();
-        return dealersCards;
+        playerHand += "\nYour score is:  " + getScore();
+        return playerHand;
     }
 
 }

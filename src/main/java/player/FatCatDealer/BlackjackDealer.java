@@ -23,11 +23,12 @@ public class BlackjackDealer {
         int score = 0;
 
         for (int i = 0; i < hand.getHandSize(); i++) {
+            int valueOfCurrentCard = getHand().get(i).getValue();
+            score += valueOfCurrentCard;
             boolean isCardAce = getHand().get(i).getValue() == 1;
             if (isCardAce == true) {
                 aceCounter += 1;
-                int valueOfCurrentCard = getHand().get(i).getValue();
-                score += valueOfCurrentCard;
+
             }
             if (aceCounter > 0 && score < 10) {
                 score += 10;
