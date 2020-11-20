@@ -139,7 +139,7 @@ public class BlackjackGame implements Game, GamblingGame {
                input = console.getIntegerInput("Would you like to play a hand or leave? \n1: Play a hand \n2: Leave the game\n");
             }
             if (input == 2) {
-                cardGameMenu.runCardGameMenu();
+                cardGameMenu.runCardGameMenu(player);
             } else {
                 getPlayerBet();
                 placeBet();
