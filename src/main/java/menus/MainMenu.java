@@ -38,6 +38,7 @@ public class MainMenu {
         switch (newSelection) {
             case 1:
                 //Take to card game menu
+
                 output = "TESTING THIS OUT";
                 break;
             case 2:

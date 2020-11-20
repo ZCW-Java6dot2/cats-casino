@@ -28,6 +28,8 @@ public class CardGameMenu {
         switch (selection) {
             case 1:
                 //Play Blackjack
+//                BlackjackGame game = new BlackjackGame();
+//                        game.run
                 break;
             case 2:
                 //Play Go Fish
