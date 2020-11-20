@@ -1,6 +1,5 @@
 package games.cardgames;
 
-//TODO implement comparable interface
 public class Card implements Comparable<Card> {
     private String cardSuits;
     private Integer cardValue;
