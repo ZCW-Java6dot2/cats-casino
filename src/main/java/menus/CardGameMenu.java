@@ -38,6 +38,8 @@ public class CardGameMenu {
         switch (selection) {
             case 1:
                 //Play Blackjack
+//                BlackjackGame game = new BlackjackGame();
+//                        game.run
                 break;
             case 2:
                 GoFish goFishGame= new GoFish(new GoFishPlayer(console, player.getUsername(), player.getPassword(), player.getPlayersAccount()),new GoFishDealer(), console);
