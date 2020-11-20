@@ -19,9 +19,7 @@ public class LoginMenu {
         this.playerWarehouse = new PlayerWarehouse(console);
     }
 
-//    public PlayerWarehouse getPlayerWarehouse(){
-//        return this.playerWarehouse;
-//    }
+
 
     public String runLoginMenu() {
         String output = null;

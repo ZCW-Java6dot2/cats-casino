@@ -16,7 +16,7 @@ public class BlackjackGameTest {
         BlackjackDealer dealer = new BlackjackDealer();
         BlackjackPlayer player = new BlackjackPlayer(console, null, null, null);
         //when
-        BlackjackGame blackjackGame = new BlackjackGame(player, dealer);
+        BlackjackGame blackjackGame = new BlackjackGame(player, dealer, console);
         //then
         Assert.assertFalse(blackjackGame.checkBlackjack());
         Assert.assertFalse(blackjackGame.bustDealer());
