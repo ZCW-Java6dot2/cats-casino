@@ -1,10 +1,13 @@
 package games.cardgames;
 
 import io.zipcoder.casino.utilities.Console;
+import javafx.print.PageLayout;
 import org.junit.Assert;
 import org.junit.Test;
+import player.Account;
 import player.BlackjackPlayer;
 import player.FatCatDealer.BlackjackDealer;
+import player.Player;
 
 import java.util.ArrayList;
 
@@ -14,7 +17,7 @@ public class BlackjackGameTest {
         //given
         Console console = new Console(System.in, System.out);
         BlackjackDealer dealer = new BlackjackDealer();
-        BlackjackPlayer player = new BlackjackPlayer(console, null, null, null);
+        BlackjackPlayer player = new BlackjackPlayer(console, "amandaW", "C00lc0d3", new Account(console));
         //when
         BlackjackGame blackjackGame = new BlackjackGame(player, dealer, console);
         //then
