@@ -1,20 +1,23 @@
 package menus;
 
+import io.zipcoder.casino.Casino;
+import io.zipcoder.casino.utilities.Console;
 import junit.framework.TestCase;
+
+import java.io.ByteArrayInputStream;
 
 
 public class MenuTests extends TestCase {
 
     public void testRunLoginMenu() {
 
-//        String expectedInput = "1\nKyle\n2020\n1\n4\n3\n";
-//        System.setIn(new ByteArrayInputStream(expectedInput.getBytes()));
-//
-//        Console console = new Console(System.in, System.out);
-//        Accounts preLoadedAccounts = Casino.preLoadAccounts(console);
-//        LoginMenu loginMenu = new LoginMenu(console, preLoadedAccounts);
-//        String output = loginMenu.runLoginMenu();
-//        assertEquals("Closing casino!", output);
+        String expectedInput = "1\nKyle\n2020\n1\n4\n3\n";
+        System.setIn(new ByteArrayInputStream(expectedInput.getBytes()));
+
+        Console console = new Console(System.in, System.out);
+        LoginMenu loginMenu = new LoginMenu(console);
+        String output = loginMenu.runLoginMenu();
+        assertEquals("Closing casino!", output);
     }
 
     public void testCreateAccount() {
