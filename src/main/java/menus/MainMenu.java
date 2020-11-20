@@ -21,7 +21,7 @@ public class MainMenu {
         String output = null;
         //TODO: Add ASCII ART
         while (mainMenuPower) {
-            System.out.println("\n" +
+            console.println("\n" +
                     "Please choose from the following options:\n" +
                     "1 - Play Card Games\n" +
                     "2 - Play Dice Games\n" +
@@ -54,6 +54,6 @@ public class MainMenu {
                 output = "Please choose a correct option from the menu.";
                 break;
         }
-        return output;
+        return output = "Leaving Main Menu.";
     }
 }
