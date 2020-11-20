@@ -1,6 +1,5 @@
 package games.cardgames;
 
-
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
@@ -12,36 +11,31 @@ import player.FatCatDealer.BlackjackDealer;
 import java.util.ArrayList;
 
 public class BlackjackGame implements Game, GamblingGame {
-    Console console;
-    private DeckOfCards deck;
+    private Console console;
+    private DeckOfCards deck = new DeckOfCards();
     private BlackjackPlayer player;
     private BlackjackDealer fatCat;
-    private Account currentAccount;
     private Integer playersBet;
     private boolean stillPlaying;
-    Integer input;
+    private Integer input;
     Integer makeDecision;
     private CardGameMenu cardGameMenu;
+    private Account currentAccount;
 
     //TODO HOW TO CONSTRUCT ACCOUNT AND CARDGAME MENU AND DECK OF CARDS. SOS SEND HELP.
 
 
-
-
-
     public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat) {
         this.player = player;
+        this.currentAccount = player.getPlayersAccount();
         this.fatCat = fatCat;
         this.playersBet = 0;
-        deck.createDeck();
-        deck.shuffleDeck();
         this.stillPlaying = true;
     }
 
     public DeckOfCards getDeck() {
         return deck;
     }
-
 
     public void drawCardPlayer() {
         player.hit(deck.getCard());
@@ -84,10 +78,8 @@ public class BlackjackGame implements Game, GamblingGame {
         return playersBet;
     }
 
-
-
     public void placeBet() {
-        currentAccount.setBalance(currentAccount.getBalance() - playersBet);
+        currentAccount.setBalance(player.getPlayersAccount().getBalance() - playersBet);
     }
 
     public void winnings(Integer playersBet) {
@@ -113,8 +105,6 @@ public class BlackjackGame implements Game, GamblingGame {
         fatCat.getHand().add(deck.getCard());
     }
 
-
-
     public Boolean checkBlackjack() {
         if (this.fatCat.checkBlackjack() && this.player.checkBlackjack()) {
             console.println("Push! You both got Blackjack.\n");
@@ -133,12 +123,13 @@ public class BlackjackGame implements Game, GamblingGame {
         return false;
     }
 
-
     public void startGame() {
         //TODO
         // console.println(String.format("Welcome to ", getGameName(gameName), "!"));
 
         while (stillPlaying) {
+            deck.createDeck();
+            deck.shuffleDeck();
             setPlayerHand();
             setDealerHand();
 
@@ -214,11 +205,6 @@ public class BlackjackGame implements Game, GamblingGame {
                     break;
                 }
             }
-
         }
-
-
     }
-
-
 }

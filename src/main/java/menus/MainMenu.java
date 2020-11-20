@@ -2,6 +2,7 @@ package menus;
 
 import io.zipcoder.casino.utilities.Console;
 import player.Account;
+import player.Player;
 
 public class MainMenu {
     private Console console;
@@ -14,7 +15,7 @@ public class MainMenu {
         this.casinoProfileMenu = new CasinoProfileMenu(console);
     }
 
-    public String runMainMenu(Account account) {
+    public String runMainMenu(Player currentPlayer) {
         String output = null;
         //TODO: Add ASCII ART
         while (mainMenuPower) {
@@ -26,12 +27,12 @@ public class MainMenu {
                     "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
             Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
-            output = runMainMenuSwitch(newSelection, account);
+            output = runMainMenuSwitch(newSelection, currentPlayer);
         }
         return output;
     }
 
-    public String runMainMenuSwitch(Integer newSelection, Account account) {
+    public String runMainMenuSwitch(Integer newSelection, Player currentPlayer) {
         String output = null;
         boolean powerOn = true;
         switch (newSelection) {
@@ -44,7 +45,7 @@ public class MainMenu {
                 break;
             case 3:
 
-                output = casinoProfileMenu.runCasinoProfileMenu(account);
+                output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 4:
                 mainMenuPower = false;

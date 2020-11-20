@@ -3,20 +3,18 @@ package player;
 import games.cardgames.Card;
 import games.cardgames.Hand;
 import interfaces.Gambler;
+import io.zipcoder.casino.utilities.Console;
 
 import java.util.ArrayList;
 
-public class BlackjackPlayer implements Gambler {
-    Player player;
-    Hand splitHand;
+public class BlackjackPlayer extends Player implements Gambler {
     private Card card;
     private Hand hand = new Hand();
-
-
     private boolean hasStood;
 
-    public BlackjackPlayer(Player player) {
-        this.player = player;
+
+    public BlackjackPlayer(Console console, String username, String password, Account playersAccount) {
+        super(console, username, password, playersAccount);
     }
 
 
@@ -71,12 +69,13 @@ public class BlackjackPlayer implements Gambler {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         String dealersCards = "Fat Cat's cards are:  ";
-        for (Card card: hand.getHand()) {
+        for (Card card : hand.getHand()) {
             dealersCards += card.toString() + " ";
         }
         dealersCards += "\nFat Cat's score is:  " + getScore();
         return dealersCards;
     }
+
 }

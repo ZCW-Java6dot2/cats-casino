@@ -3,6 +3,7 @@ package menus;
 
 import io.zipcoder.casino.utilities.Console;
 import player.Account;
+import player.Player;
 
 public class CasinoProfileMenu {
     Console console;
@@ -13,12 +14,12 @@ public class CasinoProfileMenu {
         this.console = console;
     }
 
-    public String runCasinoProfileMenu(Account account) {
+    public String runCasinoProfileMenu(Player currentPlayer) {
         String output = null;
         //TODO: Add ASCII ART
         while (casinoMenuPower) {
             System.out.println("\n" +
-                    "Current Username logged in: " + account.getUsername() +
+                    "Current Username logged in: " + currentPlayer.getUsername() +
                     "\nPlease choose from the following options:\n" +
                     "1 - Manage Funds\n" +
                     "2 - Change Username\n" +
@@ -26,23 +27,23 @@ public class CasinoProfileMenu {
                     "4 - Return to Main Menu\n" +
                     "---------------------------------\n");
             Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
-            output = casinoProfileSwitch(newSelection, account);
+            output = casinoProfileSwitch(newSelection, currentPlayer);
         }
         return output;
     }
 
-    public String casinoProfileSwitch(Integer newSelection, Account account) {
+    public String casinoProfileSwitch(Integer newSelection, Player currentPlayer) {
         String output = null;
         switch (newSelection) {
             case 1:
-                output = manageFundsMenu(account);
+                output = manageFundsMenu(currentPlayer);
                 break;
             case 2:
-                account.changeUsername(account);
+                currentPlayer.changeUsername();
                 output = "Account username change successful";
                 break;
             case 3:
-                account.changePassword(account);
+                currentPlayer.changePassword();
                 output = "Account password change successful";
                 break;
             case 4:
@@ -57,7 +58,7 @@ public class CasinoProfileMenu {
 
 
     //TODO: Add ASCII ART
-    public String manageFundsMenu(Account account) {
+    public String manageFundsMenu(Player currentPlayer) {
         String output = null;
         while (managedFundsMenuPower) {
         System.out.println("\n" +
@@ -67,22 +68,22 @@ public class CasinoProfileMenu {
                 "3 - Return to Profile Menu\n" +
                 "---------------------------------\n");
             Integer newestSelection = console.getIntegerInput("Enter choice here: -> ");
-            output = managedFundsSwitch(newestSelection, account);
+            output = managedFundsSwitch(newestSelection, currentPlayer);
 
     }
         return output;
 }
 
-    public String managedFundsSwitch(Integer newestSelection, Account account) {
+    public String managedFundsSwitch(Integer newestSelection, Player currentPlayer) {
         String output = null;
         switch (newestSelection) {
             case 1:
-                account.depositFunds(account);
-                output = "Funds deposited successfully. Current balance = $" + account.getBalance();
+                currentPlayer.depositFunds();
+                output = "Funds deposited successfully. Current balance = $" + currentPlayer.getPlayersAccount().getBalance();
                 break;
             case 2:
-                account.cashoutFunds(account);
-                output = "Cash out successful. Balance = $0.00";
+                currentPlayer.cashoutFunds();
+                output = "Cash out successful. Current Balance = $" + currentPlayer.getPlayersAccount().getBalance();
                 break;
             case 3:
                 managedFundsMenuPower = false;
