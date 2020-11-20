@@ -1,7 +1,7 @@
 package games.cardgames;
 
 //TODO implement comparable interface
-public class Card extends DeckOfCards implements Comparable<Card> {
+public class Card implements Comparable<Card> {
     private String cardSuits;
     private Integer cardValue;
 
@@ -20,7 +20,7 @@ public class Card extends DeckOfCards implements Comparable<Card> {
 
     @Override
     public String toString() {
-        if (this.getValue() == 11) {
+        if (this.getValue() == 1) {
             if (this.getSuit() == "Hearts") {
                 return "Ace of ♥";
             } else if (this.getSuit() == "Spades") {
@@ -71,7 +71,7 @@ public class Card extends DeckOfCards implements Comparable<Card> {
                 return "King of ♦";
             }
         }
-        return "Error";
+        return "error";
     }
 
     public int compareTo(Card c) {
