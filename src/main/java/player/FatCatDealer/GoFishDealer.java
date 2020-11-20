@@ -1,35 +1,32 @@
-package player;
+package player.FatCatDealer;
 
 import games.cardgames.Card;
 import games.cardgames.Hand;
-import interfaces.Gambler;
 import io.zipcoder.casino.utilities.Console;
+import player.Account;
 
 import java.util.ArrayList;
 
-public class GoFishPlayer extends Player {
+public class GoFishDealer {
     private Hand hand = new Hand();
-    private Integer playerScore = 0;
+    private Integer fatCatScore = 0;
     private ArrayList<Card> tabledSetHolder = new ArrayList<Card>();
 
-    public GoFishPlayer(Console console, String username, String password, Account playersAccount) {
-        super(console, username, password, playersAccount);
-    }
 
     public void draw(Card drawnCard) {
         hand.addCard(drawnCard);
     }
-    public ArrayList<Card> getPlayerHand() {
+    public ArrayList<Card> getFatCatHand() {
         return hand.getHand();
     }
-    public String printPlayerScore() {
-        return "Score: " + playerScore;
+    public String printFatCatScore() {
+        return "Fat Cat Score: " + fatCatScore;
     }
-    public Integer getPlayerScore() {
-        return playerScore;
+    public Integer getFatCatScore() {
+        return fatCatScore;
     }
-    public Integer playerScored() {
-        return playerScore++;
+    public Integer fatCatScored() {
+        return fatCatScore++;
     }
     public void removeSet() {
         hand.getHand().removeAll(tabledSetHolder);
@@ -50,7 +47,7 @@ public class GoFishPlayer extends Player {
                     tabledSetHolder.add(hand.getHand().get(i - 2));
                     tabledSetHolder.add(hand.getHand().get(i - 3));
                     setCounter = 0;
-                    playerScored();
+                    fatCatScored();
                 }
             }
         }
@@ -58,3 +55,5 @@ public class GoFishPlayer extends Player {
     }
 
 }
+
+

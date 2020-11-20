@@ -1,10 +1,20 @@
 package menus;
 
 
+import games.cardgames.GoFish;
 import io.zipcoder.casino.utilities.Console;
+import player.FatCatDealer.GoFishDealer;
+import player.GoFishPlayer;
+import player.Player;
 
 public class CardGameMenu {
     Console console;
+    Player player;
+
+    public CardGameMenu(Console console, Player player) {
+        this.console = console;
+        this.player = player;
+    }
 
     public String runCardGameMenu() {
         boolean cardGameMenuPower = true;
@@ -32,7 +42,7 @@ public class CardGameMenu {
 //                        game.run
                 break;
             case 2:
-                //Play Go Fish
+                GoFish goFishGame= new GoFish(new GoFishPlayer(console, player.getUsername(), player.getPassword(), player.getPlayersAccount()),new GoFishDealer(), console);
                 break;
             case 3:
                 //run main menu
