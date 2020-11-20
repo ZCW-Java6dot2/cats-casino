@@ -1,20 +1,17 @@
 package menus;
-
 import io.zipcoder.casino.utilities.Console;
 import player.Account;
 import player.Player;
-
 public class MainMenu {
     private Console console;
     private CasinoProfileMenu casinoProfileMenu;
-
+    private CardGameMenu cardGameMenu;
     private boolean mainMenuPower = true;
-
     public MainMenu(Console console) {
         this.console = console;
         this.casinoProfileMenu = new CasinoProfileMenu(console);
+//        this.cardGameMenu = new CardGameMenu(console, cardGameMenu.player);
     }
-
     public String runMainMenu(Player currentPlayer) {
         String output = null;
         //TODO: Add ASCII ART
@@ -31,21 +28,17 @@ public class MainMenu {
         }
         return output;
     }
-
     public String runMainMenuSwitch(Integer newSelection, Player currentPlayer) {
         String output = null;
         boolean powerOn = true;
         switch (newSelection) {
             case 1:
-                //Take to card game menu
-
-                output = "TESTING THIS OUT";
+                output = cardGameMenu.runCardGameMenu();
                 break;
             case 2:
                 //Take to dice game menu
                 break;
             case 3:
-
                 output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 4:
@@ -57,5 +50,4 @@ public class MainMenu {
         }
         return output;
     }
-
 }

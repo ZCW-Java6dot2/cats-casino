@@ -25,12 +25,13 @@ public class BlackjackGame implements Game, GamblingGame {
     //TODO HOW TO CONSTRUCT ACCOUNT AND CARDGAME MENU AND DECK OF CARDS. SOS SEND HELP.
 
 
-    public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat) {
+    public BlackjackGame(BlackjackPlayer player, BlackjackDealer fatCat, Console console) {
         this.player = player;
         this.currentAccount = player.getPlayersAccount();
         this.fatCat = fatCat;
         this.playersBet = 0;
         this.stillPlaying = true;
+        this.console = console;
     }
 
     public DeckOfCards getDeck() {
