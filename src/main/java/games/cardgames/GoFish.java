@@ -47,13 +47,7 @@ public class GoFish implements Game {
     public void showPlayerHand() {
         int handSize = player.getPlayerHand().size();
         for(int i = 0; i < handSize; i++) {
-            console.println(player.getPlayerHand().get(i).toString());
-        }
-    }
-    public void showFatCatHand() {
-        int handSize = fatCat.getFatCatHand().size();
-        for(int i = 0; i < handSize; i++) {
-            console.println(fatCat.getFatCatHand().get(i).toString());
+            console.print(player.getPlayerHand().get(i).toString());
         }
     }
     public boolean checkPlayerHand(Integer cardValue) {
