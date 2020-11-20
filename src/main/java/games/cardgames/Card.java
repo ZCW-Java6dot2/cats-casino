@@ -21,53 +21,53 @@ public class Card implements Comparable<Card> {
     public String toString() {
         if (this.getValue() == 1) {
             if (this.getSuit() == "Hearts") {
-                return "Ace of ♥";
+                return "Ace ♥";
             } else if (this.getSuit() == "Spades") {
-                return "Ace of ♠";
+                return "Ace ♠";
             } else if (this.getSuit() == "Clubs") {
-                return "Ace of ♣";
+                return "Ace ♣";
             } else {
-                return "Ace of ♦";
+                return "Ace ♦";
             }
         } else if (this.getValue() > 1 && this.getValue() < 11) {
             if (this.getSuit() == "Hearts") {
-                return this.getValue() + " of ♥";
+                return this.getValue() + " ♥";
             } else if (this.getSuit() == "Spades") {
-                return this.getValue() + " of ♠";
+                return this.getValue() + " ♠";
             } else if (this.getSuit() == "Clubs") {
-                return this.getValue() + " of ♣";
+                return this.getValue() + " ♣";
             } else {
-                return this.getValue() + " of ♦";
+                return this.getValue() + " ♦";
             }
         } else if (this.getValue() == 11) {
             if (this.getSuit() == "Hearts") {
-                return "Jack of ♥";
+                return "Jack ♥";
             } else if (this.getSuit() == "Spades") {
-                return "Jack of ♠";
+                return "Jack ♠";
             } else if (this.getSuit() == "Clubs") {
-                return "Jack of ♣";
+                return "Jack ♣";
             } else {
-                return "Jack of ♦";
+                return "Jack ♦";
             }
         } else if (this.getValue() == 12) {
             if (this.getSuit() == "Hearts") {
-                return "Queen of ♥";
+                return "Queen ♥";
             } else if (this.getSuit() == "Spades") {
-                return "Queen of ♠";
+                return "Queen ♠";
             } else if (this.getSuit() == "Clubs") {
-                return "Queen of ♣";
+                return "Queen ♣";
             } else {
-                return "Queen of ♦";
+                return "Queen ♦";
             }
         } else if (this.getValue() == 13) {
             if (this.getSuit() == "Hearts") {
-                return "King of ♥";
+                return "King ♥";
             } else if (this.getSuit() == "Spades") {
-                return "King of ♠";
+                return "King ♠";
             } else if (this.getSuit() == "Clubs") {
-                return "King of ♣";
+                return "King ♣";
             } else {
-                return "King of ♦";
+                return "King ♦";
             }
         }
         return "error";
