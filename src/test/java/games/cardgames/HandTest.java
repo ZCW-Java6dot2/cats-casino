@@ -1,13 +1,21 @@
 package games.cardgames;
 
-import junit.framework.TestCase;
+//AMANDA'S WORKING HERE DO NOT TOUCH//
 
-public class HandTest extends TestCase {
-
-    public void setUp() throws Exception {
-        super.setUp();
-    }
-
-    public void tearDown() throws Exception {
-    }
-}
+//
+//import org.junit.Test;
+//
+//import java.util.ArrayList;
+//
+//public class HandTest {
+//    @Test
+//    public void getHandTest(){
+//        //given
+//        Hand hand = new Hand();
+//        ArrayList<Card> expectedArray =
+//        //when
+//        //then
+//    }
+//
+//
+//}
