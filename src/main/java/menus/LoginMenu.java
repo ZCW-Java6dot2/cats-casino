@@ -1,24 +1,27 @@
 package menus;
 
 import io.zipcoder.casino.utilities.Console;
-import player.Account;
 
-
-import java.util.ArrayList;
+import player.Player;
+import player.PlayerWarehouse;
 
 public class LoginMenu {
-    Console console;
+    private Console console;
     MainMenu mainMenu;
     CasinoProfileMenu casinoProfileMenu;
-    ArrayList<Account> bank;
     private boolean loginMenuPower = true;
-
+    PlayerWarehouse playerWarehouse;
 
     public LoginMenu(Console console) {
         this.console = console;
         this.mainMenu = new MainMenu(console);
         this.casinoProfileMenu = new CasinoProfileMenu(console);
+        this.playerWarehouse = new PlayerWarehouse(console);
     }
+
+//    public PlayerWarehouse getPlayerWarehouse(){
+//        return this.playerWarehouse;
+//    }
 
     public String runLoginMenu() {
         String output = null;
@@ -32,67 +35,33 @@ public class LoginMenu {
                     "---------------------------------\n");
             Integer selection = console.getIntegerInput("Enter choice here: -> ");
             output = loginMenuSwitch(selection);
-
+            console.println(output);
         }
         return output;
     }
 
     public String loginMenuSwitch(Integer selection) {
         String output = null;
-        boolean powerOn = true;
+        Player currentPlayer = null;
         switch (selection) {
             case 1:
-                //Create login method for Casino Profile
-//                selection = console.getIntegerInput("Enter choice here: -> ");
-                output = mainMenu.runMainMenu(selection);
+                currentPlayer = playerWarehouse.loginUser();
+                output = mainMenu.runMainMenu(currentPlayer);
                 break;
             case 2:
-                //Create profile method for Casino Profile
-                //Instantiate Account
-                casinoProfileMenu.runCasinoProfileMenu();
+                currentPlayer = playerWarehouse.createNewUser();
+                output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 3:
                 loginMenuPower = false;
                 output = "Closing casino!";
+                //TODO tell em how much we took from them!
                 break;
             default:
+                output = "Please choose a correct option from the menu.";
                 break;
         }
         return output;
-    }
-
-    public Account createNewUser(String input) {
-        console.println("\nPlease provide a username you would like to use:");
-        String username = console.getStringInput(input);
-        console.println("\nPlease provide a password for your profile:");
-        String password = console.getStringInput(input);
-        Account casinoAccount = new Account(username, password);
-        this.bank.add(casinoAccount);
-        return casinoAccount;
-    }
-
-    public Account loginUser(String input) {
-        Account currentAccount = null;
-        console.println("\n" +
-                "Please enter your username.");
-        String username = console.getStringInput(input);
-        console.println("\nPlease enter your password.");
-        String password = console.getStringInput(input);
-        for (Account account : bank) {
-            String currentUsername = account.getUsername();
-            String currentPassword = account.getPassword();
-            boolean isCorrectName = currentUsername.equals(username);
-            boolean isCorrectPassword = currentPassword.equals(password);
-            boolean isValid = isCorrectName && isCorrectPassword;
-            if (isValid) {
-                currentAccount = account;
-            }
-            if (currentAccount == null) {
-                console.println("\nIncorrect user or password, please try again.");
-                currentAccount = createNewUser(input);
-            }
-        }
-        return currentAccount;
     }
 }
 

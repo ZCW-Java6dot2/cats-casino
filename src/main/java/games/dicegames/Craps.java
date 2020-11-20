@@ -2,46 +2,78 @@ package games.dicegames;
 
 import interfaces.GamblingGame;
 import interfaces.Game;
-import player.Player;
+import player.CrapsPlayer;
 
-import java.util.ArrayList;
+public class Craps implements Game, GamblingGame {
 
-public class Craps extends DiceGame implements Game, GamblingGame {
+    private Dice dice = new Dice(2);
+    private Integer point;
+
+    private boolean playerOnPass = false;
+    private boolean playerOnDontPass = false;
+    private boolean passBetsWin = false;
 
 
-    public void addPlayer(Player player) {
-
+    public Integer getSumOfDice() {
+        return getValueOfDieOne() + getValueOfDieTwo();
     }
 
-    public void removePlayer(Player player) {
-
+    public Integer getValueOfDieOne() {
+        return dice.getDice().get(0).getValue();
     }
 
-    public void startGame() {
-
+    public Integer getValueOfDieTwo() {
+        return dice.getDice().get(1).getValue();
     }
 
-    public void endGame() {
-
+    public Dice getDice() {
+        return dice;
     }
 
-    public String results(ArrayList<Integer> scores) {
-        return null;
+    public void rollDice() {
+        dice.rollDice();
     }
 
-    public void startPlayersTurn() {
-
+    public Integer getPoint() {
+        return point;
     }
 
-    public void finishTurn() {
-
+    public void setPoint(Integer point) {
+        this.point = point;
     }
 
+    public boolean isPassBetsWin() {
+        return passBetsWin;
+    }
+
+    public void setPassBetsWin(boolean passBetsWin) {
+        this.passBetsWin = passBetsWin;
+    }
+
+    public void takeBet(CrapsPlayer crapsPlayer, Integer betAmount) {
+        crapsPlayer.getPlayersAccount().setBalance(crapsPlayer.getPlayersAccount().getBalance() - betAmount);
+    }
+
+    public void putPlayerOnPass() {
+        playerOnPass = true;
+    }
+
+    public void putPlayerOnDontPass() {
+        playerOnDontPass = true;
+    }
+
+    @Override
     public Integer getPlayerBet() {
         return null;
     }
 
-    public Integer payWinnings() {
-        return null;
+    @Override
+    public void winnings(Integer playersBet) {
+
+    }
+
+    @Override
+    public void startGame() {
+
     }
 }

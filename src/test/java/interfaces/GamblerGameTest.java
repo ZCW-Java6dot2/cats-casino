@@ -1,8 +1,8 @@
-package games.cardgames;
+package interfaces;
 
 import junit.framework.TestCase;
 
-public class CardValuesTest extends TestCase {
+public class GamblerGameTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
@@ -11,9 +11,9 @@ public class CardValuesTest extends TestCase {
     public void tearDown() throws Exception {
     }
 
-    public void testValues() {
+    public void testGetPlayerBet() {
     }
 
-    public void testValueOf() {
+    public void testPayWinnings() {
     }
 }

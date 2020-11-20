@@ -1,65 +1,62 @@
 package games.cardgames;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
 public class DeckOfCards {
-//    Stack<Card> deck;
+    Stack<Card> deck;
 
-
-    private ArrayList<Card> cards;
 
     public DeckOfCards() {
-        this.cards = new ArrayList<Card>();
+        this.deck = new Stack<Card>();
     }
-    public void createFullDeck() {
-        for(CardSuits cardSuits: CardSuits.values()) {
-            for(CardValues cardValues: CardValues.values()) {
-                this.cards.add(new Card(cardSuits, cardValues));
+
+    public void createDeck() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 1; j <= 13; j++) {
+                if (i == 0) {
+                    Card card = new Card("♥", j);  //hearts
+                    deck.push(card);
+                } else if (i == 1) {
+                    Card card = new Card("♠", j);  //spades
+                    deck.push(card);
+                } else if (i == 2) {
+                    Card card = new Card("♦", j);  //diamonds
+                    deck.push(card);
+                } else if (i == 3) {
+                    Card card = new Card("♣", j);  //clubs
+                    deck.push(card);
+                }
             }
         }
     }
-    public String toString() {
-        String deckOfCardsOutput = "";
-        int i = 0;
-        for(Card card: this.cards) {
-            deckOfCardsOutput += "\n" + i + "-" + card.toString();
-            i++;
-        }
-        return deckOfCardsOutput;
+
+    public Stack<Card> getStack() {
+        return deck;
     }
 
     public void shuffleDeck() {
-        //array list copy may be unnessecary, shuffle method should do this
-        // ArrayList<Card> deckToBeShuffled = new ArrayList<Card>();
-        Collections.shuffle(cards);
+        Collections.shuffle(deck);
     }
 
-
-    public void removeCard(int i){
-        this.cards.remove(i);
+    public void removeCard(int i) {
+        this.deck.remove(i);
     }
 
-    public Card getCard(int i){
-        return this.cards.get(i);
+    public Card getCard() {
+        return deck.pop();
     }
 
-    public void addCard(Card addCard){
-        this.cards.add(addCard);
+    public boolean isEmpty(){
+        return deck.isEmpty();
     }
 
-
-    public void dealCard(DeckOfCards comingFrom) {
-        this.cards.add(comingFrom.getCard(0));
-        comingFrom.removeCard(0);
+    public Card peekStack(){
+        return deck.peek();
     }
 
-    public void restart() {
-
+    public int deckSize() {
+        return this.deck.size();
     }
-
-
 
 }

@@ -1,38 +1,14 @@
-package player;
+package player.FatCatDealer;
 
 import games.cardgames.Card;
 import games.cardgames.Hand;
-import interfaces.Gambler;
-import io.zipcoder.casino.utilities.Console;
 
 import java.util.ArrayList;
 
-public class BlackjackPlayer extends Player implements Gambler {
-    private Card card;
+public class BlackjackDealer {
+
     private Hand hand = new Hand();
-    private boolean hasStood;
-
-
-    public BlackjackPlayer(Console console, String username, String password, Account playersAccount) {
-        super(console, username, password, playersAccount);
-    }
-
-
-    public boolean bet() {
-        return false;
-    }
-
-    public Integer placeBet() {
-        return null;
-    }
-
-    public Integer getWinnings() {
-        return null;
-    }
-
-    public boolean addFunds() {
-        return false;
-    }
+    private Card card;
 
     public void hit(Card card) {
         hand.addCard(card);
@@ -69,13 +45,18 @@ public class BlackjackPlayer extends Player implements Gambler {
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         String dealersCards = "Fat Cat's cards are:  ";
-        for (Card card : hand.getHand()) {
+        for (Card card: hand.getHand()) {
             dealersCards += card.toString() + " ";
         }
         dealersCards += "\nFat Cat's score is:  " + getScore();
         return dealersCards;
     }
 
+    public String fatCatFaceUpCard(){
+        String fatCatCard = "Fat Cat is showing:  ";
+        fatCatCard += hand.getHand().get(1);
+        return fatCatCard;
+    }
 }

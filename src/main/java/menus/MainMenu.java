@@ -1,17 +1,21 @@
 package menus;
 
 import io.zipcoder.casino.utilities.Console;
+import player.Account;
+import player.Player;
 
 public class MainMenu {
     private Console console;
+    private CasinoProfileMenu casinoProfileMenu;
 
     private boolean mainMenuPower = true;
 
     public MainMenu(Console console) {
         this.console = console;
+        this.casinoProfileMenu = new CasinoProfileMenu(console);
     }
 
-    public String runMainMenu(Integer selection) {
+    public String runMainMenu(Player currentPlayer) {
         String output = null;
         //TODO: Add ASCII ART
         while (mainMenuPower) {
@@ -22,30 +26,33 @@ public class MainMenu {
                     "3 - Modify Casino Profile\n" +
                     "4 - Return to Login Menu\n" +
                     "---------------------------------\n");
-            Integer new_selection = console.getIntegerInput("Enter choice here: -> ");
-            output = runMainMenuSwitch(new_selection);
+            Integer newSelection = console.getIntegerInput("Enter choice here: -> ");
+            output = runMainMenuSwitch(newSelection, currentPlayer);
         }
         return output;
     }
 
-    public String runMainMenuSwitch(Integer selection) {
+    public String runMainMenuSwitch(Integer newSelection, Player currentPlayer) {
         String output = null;
         boolean powerOn = true;
-        switch (selection) {
+        switch (newSelection) {
             case 1:
                 //Take to card game menu
+
                 output = "TESTING THIS OUT";
                 break;
             case 2:
                 //Take to dice game menu
                 break;
             case 3:
-                //Modify casino player
+
+                output = casinoProfileMenu.runCasinoProfileMenu(currentPlayer);
                 break;
             case 4:
                 mainMenuPower = false;
                 break;
             default:
+                output = "Please choose a correct option from the menu.";
                 break;
         }
         return output;
