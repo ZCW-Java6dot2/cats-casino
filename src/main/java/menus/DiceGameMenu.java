@@ -1,12 +1,16 @@
 package menus;
 
 import io.zipcoder.casino.utilities.Console;
+import player.Player;
 
 public class DiceGameMenu {
     Console console;
 
+    public DiceGameMenu(Console console) {
+        this.console = console;
+    }
 
-    public String runDiceGameMenu() {
+    public String runDiceGameMenu(Player currentPlayer) {
     boolean diceGameMenuPower = true;
     //TODO: Add ASCII ART
         Integer selection = 0;

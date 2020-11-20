@@ -8,14 +8,14 @@ import player.FatCatDealer.GoFishDealer;
 import player.GoFishPlayer;
 import player.Player;
 public class CardGameMenu {
-    Console console;
-    Player player;
-    public CardGameMenu(Console console, Player player) {
+    private Console console;
+    private Player player;
+    private boolean cardGameMenuPower = true;
+    public CardGameMenu(Console console) {
         this.console = console;
-        this.player = player;
     }
-    public String runCardGameMenu() {
-        boolean cardGameMenuPower = true;
+    public String runCardGameMenu(Player currentPlayer) {
+        this.player = currentPlayer;
         Integer selection = 0;
         while (cardGameMenuPower) {
             System.out.println("\n" +
@@ -41,6 +41,7 @@ public class CardGameMenu {
                 break;
             case 3:
                 //run main menu
+                cardGameMenuPower = false;
                 break;
             default:
                 break;
