@@ -53,7 +53,7 @@ public class Craps implements Game, GamblingGame {
         boolean input = false;
         boolean isValidInput = false;
         while (!isValidInput) {
-            Integer userInput = console.getIntegerInput("Would you like to cash out?\n" +
+            Integer userInput = console.getIntegerInput("Ready to play?\n" +
                     "1 - Yes, 2 - No");
             if (userInput == 1) {
                 input = true;
@@ -99,7 +99,7 @@ public class Craps implements Game, GamblingGame {
         betAmount = 0;
         boolean isValidInput = false;
         while (!isValidInput) {
-            console.println(String.format("%s, how much would you like to bet?", crapsPlayer.getUsername()));
+            betAmount = console.getIntegerInput(String.format("%s, how much would you like to bet?", crapsPlayer.getUsername()));
             if (betAmount <= balance) {
                 isValidInput = true;
             } else {
