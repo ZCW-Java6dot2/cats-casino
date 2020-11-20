@@ -1,16 +1,7 @@
 package games.cardgames;
 
-import junit.framework.TestCase;
 
-public class CardTest extends TestCase {
+public class CardTest {
 
-    public void setUp() throws Exception {
-        super.setUp();
-    }
 
-    public void tearDown() throws Exception {
-    }
-
-    public void testCompareTo() {
-    }
 }
