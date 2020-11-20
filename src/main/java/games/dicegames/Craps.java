@@ -3,7 +3,7 @@ package games.dicegames;
 import interfaces.GamblingGame;
 import interfaces.Game;
 import io.zipcoder.casino.utilities.Console;
-import menus.MainMenu;
+import player.Account;
 import player.CrapsPlayer;
 
 public class Craps implements Game, GamblingGame {
@@ -13,14 +13,19 @@ public class Craps implements Game, GamblingGame {
     private boolean playerOnPass = false;
     private boolean playerOnDontPass = false;
     private boolean passBetsWin = false;
-
-    private Craps crapsGame;
+    private Account currentAccount;
     private CrapsPlayer crapsPlayer;
     private Integer betAmount;
-    private MainMenu mainMenu;
+    private boolean runCraps = true;
+
+    public Craps(Console console, CrapsPlayer crapsPlayer) {
+        this.crapsPlayer = crapsPlayer;
+        this.currentAccount = crapsPlayer.getPlayersAccount();
+        this.console = console;
+    }
 
     public void noMoneyLeft(CrapsPlayer crapsPlayer) {
-        while (crapsPlayer.getPlayersAccount().getBalance() > 0) {
+        while (crapsPlayer.getPlayersAccount().getBalance() > 0 && runCraps) {
             playRound();
         }
     }
@@ -102,33 +107,33 @@ public class Craps implements Game, GamblingGame {
                 addFunds();
             }
         }
-        crapsGame.takeBet(crapsPlayer, betAmount);
+        takeBet(crapsPlayer, betAmount);
         console.println("Where would you like to place your bet?");
         Integer userInput = console.getIntegerInput("1 - On Pass Line, 2 - On Don't Pass Line");
         switch (userInput) {
             case 1:
-                crapsGame.putPlayerOnDontPass();
+                putPlayerOnDontPass();
                 break;
             case 2:
-                crapsGame.putPlayerOnPass();
+                putPlayerOnPass();
                 break;
         }
 
     }
 
     public boolean comeOutRoll() {
-        crapsGame.rollDice();
-        int rollSum = crapsGame.getSumOfDice();
-        console.println("You rolled a %d %s\n", rollSum, crapsGame.getDice().printDice());
+        rollDice();
+        int rollSum = getSumOfDice();
+        console.println("You rolled a %d %s\n", rollSum, getDice().printDice());
         switch (rollSum) {
             case 2:
             case 3:
             case 12:
-                crapsGame.setPassBetsWin(false);
+                setPassBetsWin(false);
                 return true;
             case 7:
             case 11:
-                crapsGame.setPassBetsWin(true);
+                setPassBetsWin(true);
                 return true;
             case 4:
             case 5:
@@ -136,7 +141,7 @@ public class Craps implements Game, GamblingGame {
             case 8:
             case 9:
             case 10:
-                crapsGame.setPoint(rollSum);
+                setPoint(rollSum);
                 return false;
         }
         return false;
@@ -146,30 +151,26 @@ public class Craps implements Game, GamblingGame {
         boolean continueRolling = true;
         int rollSum = 0;
         while (continueRolling) {
-            console.println("Rolling for point: %d\n", crapsGame.getPoint());
+            console.println("Rolling for point: %d\n", getPoint());
             console.getStringInput("Press enter to roll again.");
-            crapsGame.rollDice();
-            rollSum = crapsGame.getSumOfDice();
-            console.println("You rolled a %d %s\n", rollSum, crapsGame.getDice().printDice());
-            if (rollSum == crapsGame.getPoint() || rollSum == 7) {
+            rollDice();
+            rollSum = getSumOfDice();
+            console.println("You rolled a %d %s\n", rollSum, getDice().printDice());
+            if (rollSum == getPoint() || rollSum == 7) {
                 continueRolling = false;
             }
         }
-        crapsGame.setPassBetsWin(rollSum == crapsGame.getPoint());
+        setPassBetsWin(rollSum == getPoint());
     }
 
     public void winnings() {
-        if (crapsGame.isPassBetsWin()) {
+        if (isPassBetsWin()) {
             console.println("Congratulations, the bets on PASS win!");
         } else {
             console.println("Congratulations, the bets on DON'T PASS win!");
         }
         crapsPlayer.getPlayersAccount().setBalance(crapsPlayer.getPlayersAccount().getBalance() + betAmount);
         betAmount = 0;
-    }
-
-    public void endGame() {
-        mainMenu.runMainMenu(crapsPlayer);
     }
 
     public void addFunds() {
@@ -181,6 +182,10 @@ public class Craps implements Game, GamblingGame {
         } else {
             endGame();
         }
+    }
+
+    public void endGame() {
+        runCraps = false;
     }
 
     public Integer getSumOfDice() {
