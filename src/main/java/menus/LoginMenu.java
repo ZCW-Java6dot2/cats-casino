@@ -12,15 +12,11 @@ public class LoginMenu {
     private boolean loginMenuPower = true;
     PlayerWarehouse playerWarehouse;
 
-    public LoginMenu(Console console, PlayerWarehouse playerWarehouse) {
+    public LoginMenu(Console console) {
         this.console = console;
         this.mainMenu = new MainMenu(console);
         this.casinoProfileMenu = new CasinoProfileMenu(console);
-        this.playerWarehouse = playerWarehouse;
-    }
-
-    public LoginMenu(Console console) {
-        this.console = console;
+        this.playerWarehouse = new PlayerWarehouse(console);
     }
 
     public String runLoginMenu() {
