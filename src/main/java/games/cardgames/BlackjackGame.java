@@ -11,7 +11,7 @@ import player.FatCatDealer.BlackjackDealer;
 import java.util.ArrayList;
 
 public class BlackjackGame implements Game, GamblingGame {
-    private Console console;
+   private Console console;
     private DeckOfCards deck = new DeckOfCards();
     private BlackjackPlayer player;
     private BlackjackDealer fatCat;
@@ -31,6 +31,7 @@ public class BlackjackGame implements Game, GamblingGame {
         this.fatCat = fatCat;
         this.playersBet = 0;
         this.stillPlaying = true;
+        this.console = console;
     }
 
     public DeckOfCards getDeck() {

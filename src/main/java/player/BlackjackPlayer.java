@@ -18,6 +18,7 @@ public class BlackjackPlayer extends Player implements Gambler {
     }
 
 
+
     public boolean bet() {
         return false;
     }

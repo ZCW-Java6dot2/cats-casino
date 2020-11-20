@@ -1,10 +1,23 @@
 package menus;
 
 
+import games.cardgames.BlackjackGame;
 import io.zipcoder.casino.utilities.Console;
+import player.Account;
+import player.BlackjackPlayer;
+import player.FatCatDealer.BlackjackDealer;
 
 public class CardGameMenu {
     Console console;
+    BlackjackGame blackjackGame;
+    BlackjackPlayer player;
+    BlackjackDealer fatCat;
+
+    public CardGameMenu(Console console, BlackjackPlayer player, BlackjackDealer fatCat, Account playerAccount) {
+        this.console = console;
+      //  this.player = new BlackjackPlayer(console, player, fatCat, playerAccount);
+        this.blackjackGame = new BlackjackGame(player, fatCat);
+    }
 
     public String runCardGameMenu() {
         boolean cardGameMenuPower = true;
@@ -27,7 +40,7 @@ public class CardGameMenu {
     public void runCardGameSwitch(Integer selection) {
         switch (selection) {
             case 1:
-                //Play Blackjack
+
                 break;
             case 2:
                 //Play Go Fish
