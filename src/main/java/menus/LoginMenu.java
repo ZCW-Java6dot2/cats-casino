@@ -19,6 +19,8 @@ public class LoginMenu {
         this.playerWarehouse = new PlayerWarehouse(console);
     }
 
+
+
     public String runLoginMenu() {
         String output = null;
         //TODO: Add ASCII ART

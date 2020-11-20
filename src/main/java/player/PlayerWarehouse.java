@@ -52,10 +52,10 @@ public class PlayerWarehouse {
                 if (isValid) {
                     currentPlayer = player;
                 }
-                if (currentPlayer == null) {
-                    console.println("\nIncorrect user or password, please try again.");
-                    currentPlayer = createNewUser();
-                }
+            }
+            if (currentPlayer == null) {
+                console.println("\nIncorrect user or password, please try again.");
+                currentPlayer = createNewUser();
             }
 
         }

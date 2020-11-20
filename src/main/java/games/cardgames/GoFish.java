@@ -2,6 +2,7 @@ package games.cardgames;
 
 
 import interfaces.Game;
+import io.zipcoder.casino.utilities.Console;
 import player.Account;
 import player.BlackjackPlayer;
 import player.FatCatDealer.BlackjackDealer;
@@ -18,20 +19,21 @@ public class GoFish implements Game {
     private GoFishPlayer player;
     private GoFishDealer fatCat;
     boolean stillPlaying;
+    private Console console;
     ArrayList<Card> cardsToRemove = new ArrayList<Card>();
 
-    public GoFish(GoFishPlayer player, GoFishDealer fatCat) {
+    public GoFish(GoFishPlayer player, GoFishDealer fatCat, Console console) {
         this.player = player;
         this.fatCat = fatCat;
         this.stillPlaying = true;
+        this.console = console;
     }
-    public Card playerDraw() {
-        return deck.getCard();
+    public void playerDraw() {
+        player.draw(deck.getCard());
     }
-    public Card fatCatDraw() {
-        return deck.getCard();
+    public void fatCatDraw() {
+        fatCat.draw(deck.getCard());
     }
-
     public void playersHand() {
         for(int i = 0; i < 7; i++) {
             playerDraw();
@@ -45,13 +47,13 @@ public class GoFish implements Game {
     public void showPlayerHand() {
         int handSize = player.getPlayerHand().size();
         for(int i = 0; i < handSize; i++) {
-            //console.println(player.getPlayerHand().get(i).toString());
+            console.println(player.getPlayerHand().get(i).toString());
         }
     }
     public void showFatCatHand() {
         int handSize = fatCat.getFatCatHand().size();
         for(int i = 0; i < handSize; i++) {
-            //console.println(fatCat.getFatCatHand().get(i).toString());
+            console.println(fatCat.getFatCatHand().get(i).toString());
         }
     }
     public boolean checkPlayerHand(Integer cardValue) {
@@ -123,7 +125,7 @@ public class GoFish implements Game {
         }
         else if(!checkFatCatHand(fish)) {
             if(!deck.isEmpty()) {
-                player.draw(playerDraw());
+                player.draw(deck.getCard());
             }
             console.println("GO FISH!\n You draw a card and add it to your hand");
             sortPlayerHand();
@@ -145,7 +147,7 @@ public class GoFish implements Game {
         }
         else if(!checkPlayerHand(fish)) {
             if(!deck.isEmpty()) {
-                fatCat.draw(fatCatDraw());
+                fatCat.draw(deck.getCard());
             }
             console.println("You avoided Fat Cat this time!");
             sortPlayerHand();

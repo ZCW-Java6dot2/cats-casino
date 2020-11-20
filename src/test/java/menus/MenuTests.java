@@ -9,16 +9,16 @@ import java.io.ByteArrayInputStream;
 
 public class MenuTests extends TestCase {
 
-    public void testRunLoginMenu() {
-
-        String expectedInput = "1\nKyle\n2020\n1\n4\n3\n";
-        System.setIn(new ByteArrayInputStream(expectedInput.getBytes()));
-
-        Console console = new Console(System.in, System.out);
-        LoginMenu loginMenu = new LoginMenu(console);
-        String output = loginMenu.runLoginMenu();
-        assertEquals("Closing casino!", output);
-    }
+//    public void testRunLoginMenu() {
+//
+//        String expectedInput = "1\nKyle\n2020\n1\n4\n3\n";
+//        System.setIn(new ByteArrayInputStream(expectedInput.getBytes()));
+//
+//        Console console = new Console(System.in, System.out);
+//        LoginMenu loginMenu = new LoginMenu(console);
+//        String output = loginMenu.runLoginMenu();
+//        assertEquals("Closing casino!", output);
+//    }
 
     public void testCreateAccount() {
 //        String expectedInput = "2\nPeter\n2020\n4\n3\n";
