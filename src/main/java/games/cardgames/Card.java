@@ -70,7 +70,7 @@ public class Card implements Comparable<Card> {
                 return "King of ♦";
             }
         }
-        return "Error";
+        return "error";
     }
 
     public int compareTo(Card c) {
