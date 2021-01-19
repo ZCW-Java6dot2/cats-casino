@@ -7,7 +7,7 @@
   * Go Fish a card game
   * BlackJack a card game
   * Craps a dice game
-  * An additional dice game
+  * Snake eye
 
 ## Specs
 * The project should include some concept of
