@@ -28,4 +28,4 @@
 * `BlackJack` and `GoFish` are both card games and should therefore inherit from a common `CardGame`.
 * Any common logic or fields between the games should live CardGame class, **not** BlackJack **nor** GoFish.
 * You must have a completed and approved UML diagram before you proceed to do any development
-* All public methods should be tested.
+* All public methods should be tested
